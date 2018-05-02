@@ -10,7 +10,7 @@
 		9ACD08A29FD62D2B67A844C7 /* Pods_BitfinexRealTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */; };
 		DD7401C581F76EE84B029608 /* Pods_BitfinexRealTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */; };
 		EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF70582099BF0C00DDD43A /* AppDelegate.swift */; };
-		EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF705A2099BF0C00DDD43A /* ViewController.swift */; };
+		EFDF705B2099BF0C00DDD43A /* CurrencyPairListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF705A2099BF0C00DDD43A /* CurrencyPairListViewController.swift */; };
 		EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705C2099BF0C00DDD43A /* Main.storyboard */; };
 		EFDF70602099BF1600DDD43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705F2099BF1600DDD43A /* Assets.xcassets */; };
 		EFDF70632099BF1600DDD43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF70612099BF1600DDD43A /* LaunchScreen.storyboard */; };
@@ -45,7 +45,7 @@
 		C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitfinexRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDF70582099BF0C00DDD43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFDF705A2099BF0C00DDD43A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFDF705A2099BF0C00DDD43A /* CurrencyPairListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairListViewController.swift; sourceTree = "<group>"; };
 		EFDF705D2099BF0C00DDD43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFDF705F2099BF1600DDD43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFDF70622099BF1600DDD43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		EFDF707A2099CA7900DDD43A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EFDF705A2099BF0C00DDD43A /* ViewController.swift */,
+				EFDF705A2099BF0C00DDD43A /* CurrencyPairListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFDF7084209A041100DDD43A /* CurrencyPair.swift in Sources */,
-				EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */,
+				EFDF705B2099BF0C00DDD43A /* CurrencyPairListViewController.swift in Sources */,
 				EFDF7088209A07BB00DDD43A /* StringExtensions.swift in Sources */,
 				EFDF707D2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */,
 				EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */,
