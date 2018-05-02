@@ -31,6 +31,6 @@ class CurrencyPair: NSObject {
         }
         
         identifier = pairIdentifier
-        readableName = pairIdentifier.separated(every: 3, withSeparator: "/")
+        readableName = pairIdentifier.separated(every: 3, withSeparator: " / ")
     }
 }

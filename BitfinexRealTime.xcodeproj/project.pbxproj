@@ -520,7 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LK6U84VJND;
+				DEVELOPMENT_TEAM = 9NJ5HXEKUS;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LK6U84VJND;
+				DEVELOPMENT_TEAM = 9NJ5HXEKUS;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

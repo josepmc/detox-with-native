@@ -10,13 +10,26 @@ import UIKit
 
 class CurrencyPairListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var currencyPairs: [CurrencyPair]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "Currency Pairs"
+        currencyPairs = [CurrencyPair]()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         BitfinexSymbolsAPI().getSymbols { (symbols, _) in
-            if let allCurrencyPairs = symbols {
-                print("currency pairs \(allCurrencyPairs)")
+            if let allCurrencyPairsIdentifier = symbols {
+                for identifier in allCurrencyPairsIdentifier {
+                    if let currencyPair = CurrencyPair(identifier: identifier) {
+                        self.currencyPairs?.append(currencyPair)
+                    }
+                }
+                self.tableView.reloadData()
             }
         }
     }
@@ -25,6 +38,30 @@ class CurrencyPairListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
+extension CurrencyPairListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currencyPairs!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let reuseIdentifier = "CurrencyPairCell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+
+        cell.textLabel?.text = currencyPairs![indexPath.row].readableName
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
