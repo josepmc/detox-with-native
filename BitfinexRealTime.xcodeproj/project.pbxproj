@@ -23,6 +23,7 @@
 		EFDF7088209A07BB00DDD43A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7087209A07BB00DDD43A /* StringExtensions.swift */; };
 		EFDF7089209A07BB00DDD43A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7087209A07BB00DDD43A /* StringExtensions.swift */; };
 		EFDF708B209A0DE000DDD43A /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */; };
+		EFDF7092209A1E6B00DDD43A /* CurrencyPairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7091209A1E6B00DDD43A /* CurrencyPairTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EFDF7083209A041100DDD43A /* CurrencyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPair.swift; sourceTree = "<group>"; };
 		EFDF7087209A07BB00DDD43A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
+		EFDF7091209A1E6B00DDD43A /* CurrencyPairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		EFDF706C2099BF1600DDD43A /* BitfinexRealTimeTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFDF7091209A1E6B00DDD43A /* CurrencyPairTests.swift */,
 				EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */,
 				EFDF707F2099DDC500DDD43A /* BitfinexSymbolsAPITests.swift */,
 				EFDF706D2099BF1600DDD43A /* BitfinexRealTimeTests.swift */,
@@ -361,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDF7092209A1E6B00DDD43A /* CurrencyPairTests.swift in Sources */,
 				EFDF708B209A0DE000DDD43A /* StringExtensionsTests.swift in Sources */,
 				EFDF7085209A041100DDD43A /* CurrencyPair.swift in Sources */,
 				EFDF70802099DDC500DDD43A /* BitfinexSymbolsAPITests.swift in Sources */,
