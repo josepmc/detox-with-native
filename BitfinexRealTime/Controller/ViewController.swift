@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        BitfinexSymbolsAPI().getSymbols { (symbols, _) in
+            if let allCurrencyPairs = symbols {
+                print("currency pairs \(allCurrencyPairs)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
