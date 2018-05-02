@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9ACD08A29FD62D2B67A844C7 /* Pods_BitfinexRealTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */; };
+		DD7401C581F76EE84B029608 /* Pods_BitfinexRealTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */; };
 		EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF70582099BF0C00DDD43A /* AppDelegate.swift */; };
 		EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF705A2099BF0C00DDD43A /* ViewController.swift */; };
 		EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705C2099BF0C00DDD43A /* Main.storyboard */; };
@@ -26,6 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DFE917E642BA89DF652999B /* Pods-BitfinexRealTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime.release.xcconfig"; sourceTree = "<group>"; };
+		0F8EF8AD26F1FFFBF3A7EDD2 /* Pods-BitfinexRealTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitfinexRealTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitfinexRealTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D166A6B2E754832B79DC46 /* Pods-BitfinexRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime.debug.xcconfig"; sourceTree = "<group>"; };
+		C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitfinexRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDF70582099BF0C00DDD43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFDF705A2099BF0C00DDD43A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACD08A29FD62D2B67A844C7 /* Pods_BitfinexRealTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7401C581F76EE84B029608 /* Pods_BitfinexRealTimeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39558796B482656EBF14737B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */,
+				10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9925AE486826014C83A97EFA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0D166A6B2E754832B79DC46 /* Pods-BitfinexRealTime.debug.xcconfig */,
+				0DFE917E642BA89DF652999B /* Pods-BitfinexRealTime.release.xcconfig */,
+				0F8EF8AD26F1FFFBF3A7EDD2 /* Pods-BitfinexRealTimeTests.debug.xcconfig */,
+				C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EFDF704C2099BF0C00DDD43A = {
 			isa = PBXGroup;
 			children = (
 				EFDF70572099BF0C00DDD43A /* BitfinexRealTime */,
 				EFDF706C2099BF1600DDD43A /* BitfinexRealTimeTests */,
 				EFDF70562099BF0C00DDD43A /* Products */,
+				9925AE486826014C83A97EFA /* Pods */,
+				39558796B482656EBF14737B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFDF70722099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTime" */;
 			buildPhases = (
+				B137D368098E9E7B0CEA553C /* [CP] Check Pods Manifest.lock */,
 				EFDF70512099BF0C00DDD43A /* Sources */,
 				EFDF70522099BF0C00DDD43A /* Frameworks */,
 				EFDF70532099BF0C00DDD43A /* Resources */,
+				FCF6A2A12ED698B45CB187E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFDF70752099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTimeTests" */;
 			buildPhases = (
+				A9988B5CA38076C8D561026B /* [CP] Check Pods Manifest.lock */,
 				EFDF70652099BF1600DDD43A /* Sources */,
 				EFDF70662099BF1600DDD43A /* Frameworks */,
 				EFDF70672099BF1600DDD43A /* Resources */,
@@ -191,6 +226,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A9988B5CA38076C8D561026B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitfinexRealTimeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B137D368098E9E7B0CEA553C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitfinexRealTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCF6A2A12ED698B45CB187E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFDF70512099BF0C00DDD43A /* Sources */ = {
@@ -356,15 +448,13 @@
 		};
 		EFDF70732099BF1600DDD43A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D166A6B2E754832B79DC46 /* Pods-BitfinexRealTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -374,15 +464,13 @@
 		};
 		EFDF70742099BF1600DDD43A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DFE917E642BA89DF652999B /* Pods-BitfinexRealTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -392,17 +480,14 @@
 		};
 		EFDF70762099BF1600DDD43A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F8EF8AD26F1FFFBF3A7EDD2 /* Pods-BitfinexRealTimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -413,17 +498,14 @@
 		};
 		EFDF70772099BF1600DDD43A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
