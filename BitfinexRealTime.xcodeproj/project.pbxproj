@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF70582099BF0C00DDD43A /* AppDelegate.swift */; };
+		EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF705A2099BF0C00DDD43A /* ViewController.swift */; };
+		EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705C2099BF0C00DDD43A /* Main.storyboard */; };
+		EFDF70602099BF1600DDD43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705F2099BF1600DDD43A /* Assets.xcassets */; };
+		EFDF70632099BF1600DDD43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF70612099BF1600DDD43A /* LaunchScreen.storyboard */; };
+		EFDF706E2099BF1600DDD43A /* BitfinexRealTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF706D2099BF1600DDD43A /* BitfinexRealTimeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFDF706A2099BF1600DDD43A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFDF704D2099BF0C00DDD43A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFDF70542099BF0C00DDD43A;
+			remoteInfo = BitfinexRealTime;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitfinexRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDF70582099BF0C00DDD43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFDF705A2099BF0C00DDD43A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFDF705D2099BF0C00DDD43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFDF705F2099BF1600DDD43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFDF70622099BF1600DDD43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFDF70642099BF1600DDD43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDF70692099BF1600DDD43A /* BitfinexRealTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitfinexRealTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDF706D2099BF1600DDD43A /* BitfinexRealTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexRealTimeTests.swift; sourceTree = "<group>"; };
+		EFDF706F2099BF1600DDD43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFDF70522099BF0C00DDD43A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDF70662099BF1600DDD43A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFDF704C2099BF0C00DDD43A = {
+			isa = PBXGroup;
+			children = (
+				EFDF70572099BF0C00DDD43A /* BitfinexRealTime */,
+				EFDF706C2099BF1600DDD43A /* BitfinexRealTimeTests */,
+				EFDF70562099BF0C00DDD43A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFDF70562099BF0C00DDD43A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */,
+				EFDF70692099BF1600DDD43A /* BitfinexRealTimeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFDF70572099BF0C00DDD43A /* BitfinexRealTime */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF70582099BF0C00DDD43A /* AppDelegate.swift */,
+				EFDF705A2099BF0C00DDD43A /* ViewController.swift */,
+				EFDF705C2099BF0C00DDD43A /* Main.storyboard */,
+				EFDF705F2099BF1600DDD43A /* Assets.xcassets */,
+				EFDF70612099BF1600DDD43A /* LaunchScreen.storyboard */,
+				EFDF70642099BF1600DDD43A /* Info.plist */,
+			);
+			path = BitfinexRealTime;
+			sourceTree = "<group>";
+		};
+		EFDF706C2099BF1600DDD43A /* BitfinexRealTimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF706D2099BF1600DDD43A /* BitfinexRealTimeTests.swift */,
+				EFDF706F2099BF1600DDD43A /* Info.plist */,
+			);
+			path = BitfinexRealTimeTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFDF70542099BF0C00DDD43A /* BitfinexRealTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFDF70722099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTime" */;
+			buildPhases = (
+				EFDF70512099BF0C00DDD43A /* Sources */,
+				EFDF70522099BF0C00DDD43A /* Frameworks */,
+				EFDF70532099BF0C00DDD43A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BitfinexRealTime;
+			productName = BitfinexRealTime;
+			productReference = EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFDF70682099BF1600DDD43A /* BitfinexRealTimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFDF70752099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTimeTests" */;
+			buildPhases = (
+				EFDF70652099BF1600DDD43A /* Sources */,
+				EFDF70662099BF1600DDD43A /* Frameworks */,
+				EFDF70672099BF1600DDD43A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFDF706B2099BF1600DDD43A /* PBXTargetDependency */,
+			);
+			name = BitfinexRealTimeTests;
+			productName = BitfinexRealTimeTests;
+			productReference = EFDF70692099BF1600DDD43A /* BitfinexRealTimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFDF704D2099BF0C00DDD43A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Ferdinando Messina";
+				TargetAttributes = {
+					EFDF70542099BF0C00DDD43A = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					EFDF70682099BF1600DDD43A = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = EFDF70542099BF0C00DDD43A;
+					};
+				};
+			};
+			buildConfigurationList = EFDF70502099BF0C00DDD43A /* Build configuration list for PBXProject "BitfinexRealTime" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFDF704C2099BF0C00DDD43A;
+			productRefGroup = EFDF70562099BF0C00DDD43A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFDF70542099BF0C00DDD43A /* BitfinexRealTime */,
+				EFDF70682099BF1600DDD43A /* BitfinexRealTimeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFDF70532099BF0C00DDD43A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDF70632099BF1600DDD43A /* LaunchScreen.storyboard in Resources */,
+				EFDF70602099BF1600DDD43A /* Assets.xcassets in Resources */,
+				EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDF70672099BF1600DDD43A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFDF70512099BF0C00DDD43A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */,
+				EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFDF70652099BF1600DDD43A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFDF706E2099BF1600DDD43A /* BitfinexRealTimeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFDF706B2099BF1600DDD43A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFDF70542099BF0C00DDD43A /* BitfinexRealTime */;
+			targetProxy = EFDF706A2099BF1600DDD43A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFDF705C2099BF0C00DDD43A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFDF705D2099BF0C00DDD43A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFDF70612099BF1600DDD43A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFDF70622099BF1600DDD43A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFDF70702099BF1600DDD43A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFDF70712099BF1600DDD43A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFDF70732099BF1600DDD43A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LK6U84VJND;
+				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFDF70742099BF1600DDD43A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LK6U84VJND;
+				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EFDF70762099BF1600DDD43A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LK6U84VJND;
+				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitfinexRealTime.app/BitfinexRealTime";
+			};
+			name = Debug;
+		};
+		EFDF70772099BF1600DDD43A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LK6U84VJND;
+				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BitfinexRealTime.app/BitfinexRealTime";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFDF70502099BF0C00DDD43A /* Build configuration list for PBXProject "BitfinexRealTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDF70702099BF1600DDD43A /* Debug */,
+				EFDF70712099BF1600DDD43A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFDF70722099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDF70732099BF1600DDD43A /* Debug */,
+				EFDF70742099BF1600DDD43A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFDF70752099BF1600DDD43A /* Build configuration list for PBXNativeTarget "BitfinexRealTimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFDF70762099BF1600DDD43A /* Debug */,
+				EFDF70772099BF1600DDD43A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFDF704D2099BF0C00DDD43A /* Project object */;
+}
