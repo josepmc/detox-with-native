@@ -18,6 +18,11 @@
 		EFDF707D2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF707C2099DCB600DDD43A /* BitfinexSymbolsAPI.swift */; };
 		EFDF707E2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF707C2099DCB600DDD43A /* BitfinexSymbolsAPI.swift */; };
 		EFDF70802099DDC500DDD43A /* BitfinexSymbolsAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF707F2099DDC500DDD43A /* BitfinexSymbolsAPITests.swift */; };
+		EFDF7084209A041100DDD43A /* CurrencyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7083209A041100DDD43A /* CurrencyPair.swift */; };
+		EFDF7085209A041100DDD43A /* CurrencyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7083209A041100DDD43A /* CurrencyPair.swift */; };
+		EFDF7088209A07BB00DDD43A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7087209A07BB00DDD43A /* StringExtensions.swift */; };
+		EFDF7089209A07BB00DDD43A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF7087209A07BB00DDD43A /* StringExtensions.swift */; };
+		EFDF708B209A0DE000DDD43A /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,9 @@
 		EFDF706F2099BF1600DDD43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFDF707C2099DCB600DDD43A /* BitfinexSymbolsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexSymbolsAPI.swift; sourceTree = "<group>"; };
 		EFDF707F2099DDC500DDD43A /* BitfinexSymbolsAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexSymbolsAPITests.swift; sourceTree = "<group>"; };
+		EFDF7083209A041100DDD43A /* CurrencyPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPair.swift; sourceTree = "<group>"; };
+		EFDF7087209A07BB00DDD43A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				EFDF70582099BF0C00DDD43A /* AppDelegate.swift */,
+				EFDF7086209A078800DDD43A /* Utils */,
 				EFDF707B2099D87100DDD43A /* Networking */,
 				EFDF70792099CA7000DDD43A /* Model */,
 				EFDF70782099CA5000DDD43A /* View */,
@@ -130,6 +139,7 @@
 		EFDF706C2099BF1600DDD43A /* BitfinexRealTimeTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */,
 				EFDF707F2099DDC500DDD43A /* BitfinexSymbolsAPITests.swift */,
 				EFDF706D2099BF1600DDD43A /* BitfinexRealTimeTests.swift */,
 				EFDF706F2099BF1600DDD43A /* Info.plist */,
@@ -147,6 +157,7 @@
 		EFDF70792099CA7000DDD43A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFDF7083209A041100DDD43A /* CurrencyPair.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +176,14 @@
 				EFDF707C2099DCB600DDD43A /* BitfinexSymbolsAPI.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		EFDF7086209A078800DDD43A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF7087209A07BB00DDD43A /* StringExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDF7084209A041100DDD43A /* CurrencyPair.swift in Sources */,
 				EFDF705B2099BF0C00DDD43A /* ViewController.swift in Sources */,
+				EFDF7088209A07BB00DDD43A /* StringExtensions.swift in Sources */,
 				EFDF707D2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */,
 				EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */,
 			);
@@ -340,7 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDF708B209A0DE000DDD43A /* StringExtensionsTests.swift in Sources */,
+				EFDF7085209A041100DDD43A /* CurrencyPair.swift in Sources */,
 				EFDF70802099DDC500DDD43A /* BitfinexSymbolsAPITests.swift in Sources */,
+				EFDF7089209A07BB00DDD43A /* StringExtensions.swift in Sources */,
 				EFDF706E2099BF1600DDD43A /* BitfinexRealTimeTests.swift in Sources */,
 				EFDF707E2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */,
 			);
