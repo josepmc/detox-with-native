@@ -110,7 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				EFDF70582099BF0C00DDD43A /* AppDelegate.swift */,
-				EFDF705A2099BF0C00DDD43A /* ViewController.swift */,
+				EFDF707B2099D87100DDD43A /* Networking */,
+				EFDF70792099CA7000DDD43A /* Model */,
+				EFDF70782099CA5000DDD43A /* View */,
+				EFDF707A2099CA7900DDD43A /* Controller */,
 				EFDF705C2099BF0C00DDD43A /* Main.storyboard */,
 				EFDF705F2099BF1600DDD43A /* Assets.xcassets */,
 				EFDF70612099BF1600DDD43A /* LaunchScreen.storyboard */,
@@ -126,6 +129,35 @@
 				EFDF706F2099BF1600DDD43A /* Info.plist */,
 			);
 			path = BitfinexRealTimeTests;
+			sourceTree = "<group>";
+		};
+		EFDF70782099CA5000DDD43A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EFDF70792099CA7000DDD43A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EFDF707A2099CA7900DDD43A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFDF705A2099BF0C00DDD43A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EFDF707B2099D87100DDD43A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +486,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -470,7 +505,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTime/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -487,7 +525,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -505,7 +547,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LK6U84VJND;
 				INFOPLIST_FILE = BitfinexRealTimeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fmessi.BitfinexRealTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
