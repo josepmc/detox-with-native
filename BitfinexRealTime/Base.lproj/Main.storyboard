@@ -35,11 +35,27 @@
                     <navigationItem key="navigationItem" id="qwE-P6-lmh"/>
                     <connections>
                         <outlet property="tableView" destination="q6I-00-XqK" id="Btd-Ue-13z"/>
+                        <segue destination="Dyf-32-nQp" kind="show" identifier="currencyPairSelectedSegue" id="ooX-Jv-pns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2" y="134"/>
+        </scene>
+        <!--Currency Pair View Controller-->
+        <scene sceneID="36N-Ux-fpQ">
+            <objects>
+                <viewController id="Dyf-32-nQp" customClass="CurrencyPairViewController" customModule="BitfinexRealTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5xB-K2-P4D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GK6-rp-65f"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vhz-It-smS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GAf-dM-cqt">
