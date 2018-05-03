@@ -43,5 +43,4 @@ class BitfinexSymbolsAPITests: XCTestCase {
         XCTAssertNil(responseError)
         XCTAssertNotNil(currencyPairs)
     }
-    
 }

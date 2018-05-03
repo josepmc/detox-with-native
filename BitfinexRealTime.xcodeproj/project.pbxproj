@@ -15,6 +15,7 @@
 		EF8B874B209B53C900B3454A /* BitfinexTickerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B8749209B53C900B3454A /* BitfinexTickerAPI.swift */; };
 		EF8B874D209B569F00B3454A /* BitfinexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B874C209B569F00B3454A /* BitfinexEndpoint.swift */; };
 		EF8B874E209B569F00B3454A /* BitfinexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B874C209B569F00B3454A /* BitfinexEndpoint.swift */; };
+		EF8B8750209B61C800B3454A /* BitfinexTickerAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B874F209B61C800B3454A /* BitfinexTickerAPITests.swift */; };
 		EFDF70592099BF0C00DDD43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF70582099BF0C00DDD43A /* AppDelegate.swift */; };
 		EFDF705B2099BF0C00DDD43A /* CurrencyPairListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDF705A2099BF0C00DDD43A /* CurrencyPairListViewController.swift */; };
 		EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDF705C2099BF0C00DDD43A /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		EF8B8746209B2D2700B3454A /* CurrencyPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewController.swift; sourceTree = "<group>"; };
 		EF8B8749209B53C900B3454A /* BitfinexTickerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexTickerAPI.swift; sourceTree = "<group>"; };
 		EF8B874C209B569F00B3454A /* BitfinexEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexEndpoint.swift; sourceTree = "<group>"; };
+		EF8B874F209B61C800B3454A /* BitfinexTickerAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexTickerAPITests.swift; sourceTree = "<group>"; };
 		EFDF70552099BF0C00DDD43A /* BitfinexRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitfinexRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDF70582099BF0C00DDD43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFDF705A2099BF0C00DDD43A /* CurrencyPairListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairListViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				EFDF7091209A1E6B00DDD43A /* CurrencyPairTests.swift */,
 				EFDF708A209A0DE000DDD43A /* StringExtensionsTests.swift */,
 				EFDF707F2099DDC500DDD43A /* BitfinexSymbolsAPITests.swift */,
+				EF8B874F209B61C800B3454A /* BitfinexTickerAPITests.swift */,
 				EFDF706F2099BF1600DDD43A /* Info.plist */,
 			);
 			path = BitfinexRealTimeTests;
@@ -385,6 +388,7 @@
 				EFDF707E2099DCB600DDD43A /* BitfinexSymbolsAPI.swift in Sources */,
 				EF8B8748209B2D2700B3454A /* CurrencyPairViewController.swift in Sources */,
 				EF8B874B209B53C900B3454A /* BitfinexTickerAPI.swift in Sources */,
+				EF8B8750209B61C800B3454A /* BitfinexTickerAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
