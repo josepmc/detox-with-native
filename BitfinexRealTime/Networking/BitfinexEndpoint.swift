@@ -13,6 +13,9 @@ import Foundation
 /// Some of the values of BitfinexEndpoint are default for each endpoint.
 /// Other values needs to be defined in each class that conforms to this protocol.
 
+typealias BitfinexEndpointRequestCompletionHandler = (Any?, Error?) -> ()
+
+
 protocol BitfinexEndpoint {
     
     /// The bitfinex base url
@@ -26,9 +29,6 @@ protocol BitfinexEndpoint {
     
     /// The HTTP method used to perform a request to this endpoint
     var endpointHttpMethod: String { get }
-    
-    /// The URLRequest used to access this endpoint
-    var endpointURLRequest: URLRequest { get }
 }
 
 
@@ -42,10 +42,4 @@ extension BitfinexEndpoint {
     var endpointFullURL: String {
         return endpointBaseURL + endpointPath
     }
-    var endpointURLRequest: URLRequest {
-        var urlRequest = URLRequest(url: URL(string: endpointFullURL)!)
-        urlRequest.httpMethod = endpointHttpMethod
-        return urlRequest
-    }
-
 }

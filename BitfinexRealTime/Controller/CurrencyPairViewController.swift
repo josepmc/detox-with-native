@@ -24,6 +24,10 @@ class CurrencyPairViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = currencyPair.readableName
+        
+        BitfinexTickerAPI().getSymbolInfo(currencyPair.identifier) { [unowned self] (json, error) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
