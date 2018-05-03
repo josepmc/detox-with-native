@@ -11,14 +11,14 @@ import Alamofire
 
 class BitfinexSymbolsAPI: NSObject {
     
-    typealias GetSymbolsCompletionHandler = ([String]?, Error?) -> ()
+    typealias GetSymbolsCompletionHandler = (Any?, Error?) -> ()
     
     let session: URLSession!
-    let apiUrlString: String
+    let apiUrl: URL!
     
     override init() {
         session = URLSession(configuration: .default)
-        apiUrlString = "https://api.bitfinex.com/v1/symbols"
+        apiUrl = URL(string: "https://api.bitfinex.com/v1/symbols")
     }
     
     /// Perform an API call to fetch the available symbols from Bitfinex
@@ -28,14 +28,21 @@ class BitfinexSymbolsAPI: NSObject {
     ///
     func getSymbols(completionHandler completion: @escaping GetSymbolsCompletionHandler) {
         
-        Alamofire.request(apiUrlString).responseJSON { response in
+        var request = URLRequest(url: apiUrl)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 10
+
+        Alamofire.request(request).responseJSON { response in
+            
+            print("DEBUG: BitfinexSymbolsAPI:getSymbols, response \(response)")
+            
             switch response.result {
+                
             case .success(let json):
-                if let jsonResult = json as? [String] {
-                    completion(jsonResult, nil)
-                }
+                completion(json, nil)
                 
             case .failure(let error):
+                print("DEBUG: BitfinexSymbolsAPI:getSymbols, an error occurred \(error.localizedDescription)")
                 completion(nil, error)
             }
         }
