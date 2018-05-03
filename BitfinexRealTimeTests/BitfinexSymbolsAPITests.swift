@@ -30,9 +30,9 @@ class BitfinexSymbolsAPITests: XCTestCase {
         var currencyPairs: [String]?
 
         // When
-        apiUnderTest.getSymbols { (symbols, error) in
+        apiUnderTest.getSymbols { (json, error) in
             responseError = error
-            currencyPairs = symbols
+            currencyPairs = json as? [String]
             testExpectation.fulfill()
         }
         
