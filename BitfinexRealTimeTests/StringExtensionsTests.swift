@@ -18,6 +18,8 @@ class StringExtensionsTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK:- String Separation Tests
+    
     func testSeparateStringEveryZeroCharacters() {
         
         // Given
@@ -90,4 +92,52 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(emptyString, emptyStringSeparated)
         XCTAssertEqual(oneCharString, oneCharStringSeparated)
     }
+    
+    
+    //MARK:- Parse string as Json tests
+    
+    func testParseAsJsonEmptyString() {
+        
+        // Given
+        let emptyString = ""
+        
+        // When
+        let jsonObject = emptyString.parseAsJSON()
+        
+        // Then
+        XCTAssertNil(jsonObject)
+    }
+    
+    
+    func testParseAsJsonNonJsonString() {
+        
+        // Given
+        let nonJsonString = "abcdefcga"
+        
+        // When
+        let jsonObject = nonJsonString.parseAsJSON()
+        
+        // Then
+        XCTAssertNil(jsonObject)
+    }
+    
+    
+    func testParseAsJsonValidJsonString() {
+        
+        // Given
+        let validJsonString = "{ \"event\": \"info\", \"version\":  \"1\", \"platform\": \"test\"}"
+        
+        // When
+        let jsonObject = validJsonString.parseAsJSON() as? [String: String]
+        
+        // Then
+        XCTAssertNotNil(jsonObject)
+        if let jsonParsed = jsonObject {
+            XCTAssertEqual(jsonParsed["event"], "info")
+            XCTAssertEqual(jsonParsed["version"], "1")
+        }
+        
+    }
+
+
 }

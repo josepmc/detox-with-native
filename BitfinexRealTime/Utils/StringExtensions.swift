@@ -16,7 +16,7 @@ extension String {
     ///   - stepAmount: the amount of characters we want to keep at each separation
     ///   - separator: the character we want to use to separate the string
     ///
-    /// - Returns: a new separated string
+    /// - Returns: A new separated string
     func separated(every stepAmount: Int, withSeparator separator: String) -> String {
         
         // if the step amount is not greater than zero we just return the same string, no separation will happen
@@ -32,4 +32,19 @@ extension String {
             }.joined(separator: separator)
         )
     }
+}
+
+
+extension String {
+    
+    /// Parse the string to return a value of type Any
+    ///
+    /// - Returns: A value of type Any or nil
+    func parseAsJSON() -> Any? {
+        guard let stringData = self.data(using: .utf8, allowLossyConversion: false) else {
+            return nil
+        }
+        return try? JSONSerialization.jsonObject(with: stringData, options: [])
+    }
+
 }
