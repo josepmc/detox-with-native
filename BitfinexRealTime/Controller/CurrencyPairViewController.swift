@@ -79,6 +79,18 @@ extension CurrencyPairViewController: WebSocketDelegate {
 
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("bitfinexWebSocket got some text: \(text)")
+        
+        let message = BitfinexWSResponseConstructor.websocketMessage(fromJsonString: text)
+        
+        if message is BitfinexWebsocketInfoMessage {
+            // INFO MESSAGE
+            // we verify the status of the platform
+            let infoMessage = message as! BitfinexWebsocketInfoMessage
+            if !infoMessage.platformIsOperative {
+                // If the platform is not operative, we disconnect
+                socket.disconnect()
+            }
+        }
     }
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

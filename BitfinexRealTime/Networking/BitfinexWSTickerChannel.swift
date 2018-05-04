@@ -17,7 +17,9 @@ class BitfinexWSTickerChannel: NSObject {
     }
     
     func subscriptionRequest(forSymbol symbol: String) -> String? {
-        let subscriptionRequest = ["event": "subscribe", "channel": channelName, "symbol": symbol]
+        let subscriptionRequest = ["event": "subscribe",
+                                   "channel": channelName,
+                                   "symbol": symbol]
         let jsonData = try? JSONSerialization.data(withJSONObject: subscriptionRequest, options: .prettyPrinted)
         guard let jsonDataNotNil = jsonData else {
             return nil
