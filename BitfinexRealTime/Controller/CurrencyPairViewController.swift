@@ -61,14 +61,14 @@ extension CurrencyPairViewController: WebSocketDelegate {
 
     func websocketDidConnect(socket: WebSocketClient) {
         print("bitfinexWebSocket \(socket) is now connected")
+        
+        // Update the UI
         updateSocketConnectionStatus(isConnected: true)
-
-//        let tickerRequest = ["event": "subscribe", "channel": "ticker", "symbol": currencyPair.identifier]
-//        if let jsonData = try? JSONSerialization.data(withJSONObject: tickerRequest, options: .prettyPrinted) {
-//            if let jsonString = String(data: jsonData, encoding: .utf8) {
-//                socket.write(string: jsonString)
-//            }
-//        }
+        
+        // Subscribe to the WS Ticker channel
+        if let tickerChannelSubscriptionRequest = BitfinexWSTickerChannel().subscriptionRequest(forSymbol: currencyPair.identifier) {
+            socket.write(string: tickerChannelSubscriptionRequest)
+        }
     }
 
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {

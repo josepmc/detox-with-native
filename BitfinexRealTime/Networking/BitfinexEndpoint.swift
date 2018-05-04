@@ -8,13 +8,12 @@
 
 import Foundation
 
+typealias BitfinexEndpointRequestCompletionHandler = (Any?, Error?) -> ()
+
 /// The BitfinexEndpoint protocol helps us formalize our API endpoints.
 ///
 /// Some of the values of BitfinexEndpoint are default for each endpoint.
 /// Other values needs to be defined in each class that conforms to this protocol.
-
-typealias BitfinexEndpointRequestCompletionHandler = (Any?, Error?) -> ()
-
 
 protocol BitfinexEndpoint {
     
