@@ -11,12 +11,13 @@ import Starscream
 
 class CurrencyPairViewController: UIViewController {
 
+    @IBOutlet weak var socketStatus: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var lastPriceLabel: UILabel!
     @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var lowPriceLabel: UILabel!
     @IBOutlet weak var highPriceLabel: UILabel!
-    @IBOutlet weak var socketStatus: UILabel!
+    @IBOutlet weak var percentage24HoursLabel: UILabel!
     
     var currencyPair: CurrencyPair!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
@@ -38,7 +39,10 @@ class CurrencyPairViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = currencyPair.readableName
+        title = currencyPair.readableName
+        view.backgroundColor = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1)
+        
+        symbolLabel.text = currencyPair.identifier.uppercased()
         
         // Connect the socket
         bitfinexSocket.delegate = self
@@ -59,9 +63,6 @@ extension CurrencyPairViewController: WebSocketDelegate {
         print("bitfinexWebSocket \(socket) is now connected")
         updateSocketConnectionStatus(isConnected: true)
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(5)) {
-            socket.disconnect()
-        }
 //        let tickerRequest = ["event": "subscribe", "channel": "ticker", "symbol": currencyPair.identifier]
 //        if let jsonData = try? JSONSerialization.data(withJSONObject: tickerRequest, options: .prettyPrinted) {
 //            if let jsonString = String(data: jsonData, encoding: .utf8) {
