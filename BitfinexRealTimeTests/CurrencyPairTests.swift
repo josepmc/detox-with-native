@@ -58,7 +58,7 @@ class CurrencyPairTests: XCTestCase {
     func testCurrencyPairHasProperReadableName() {
         // Given
         let btcUsdIdentifier = "btcusd"
-        let readableName = "btc/usd"
+        let readableName = "btc / usd"
         // When
         let currencyPair = CurrencyPair(identifier: btcUsdIdentifier)
         // Then
