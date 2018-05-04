@@ -8,9 +8,6 @@
 
 import Foundation
 
-///
-/// BitfinexWebsocketInfoMessage
-///
 /// Info messages are sent from the websocket server to notify the state of your connection.
 /// Right after connecting you will receive an info message that contains the actual version
 /// of the websocket stream, along with a platform status flag (1 for operative, 0 for maintenance).

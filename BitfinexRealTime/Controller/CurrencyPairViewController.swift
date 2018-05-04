@@ -60,19 +60,20 @@ class CurrencyPairViewController: UIViewController {
 extension CurrencyPairViewController: WebSocketDelegate {
 
     func websocketDidConnect(socket: WebSocketClient) {
-        print("bitfinexWebSocket \(socket) is now connected")
+        print("BitfinexWebSocket is now connected")
         
         // Update the UI
         updateSocketConnectionStatus(isConnected: true)
         
         // Subscribe to the WS Ticker channel
-        if let tickerChannelSubscriptionRequest = BitfinexWSTickerChannel().subscriptionRequest(forSymbol: currencyPair.identifier) {
-            socket.write(string: tickerChannelSubscriptionRequest)
+        let tickerChannel = BitfinexWSTickerChannel()
+        if let tickerSubscriptionMessage = tickerChannel.tickerSubscriptionMessage(forSymbol: currencyPair.identifier) {
+            socket.write(string: tickerSubscriptionMessage)
         }
     }
 
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        print("bitfinexWebSocket is now disconnected: \(String(describing: error?.localizedDescription))")
+        print("BitfinexWebSocket is now disconnected: \(String(describing: error?.localizedDescription))")
         
         // Update the UI
         updateSocketConnectionStatus(isConnected: false)
@@ -88,12 +89,14 @@ extension CurrencyPairViewController: WebSocketDelegate {
     }
 
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("bitfinexWebSocket got some text: \(text)")
+        print("BitfinexWebSocket received some text: \(text)")
         
         let message = BitfinexWSResponseConstructor.websocketMessage(fromJsonString: text)
         
+        // -------------
+        // INFO MESSAGE
+        // -------------
         if message is BitfinexWebsocketInfoMessage {
-            // INFO MESSAGE
             // we verify the status of the platform
             let infoMessage = message as! BitfinexWebsocketInfoMessage
             if !infoMessage.platformIsOperative {
@@ -101,10 +104,19 @@ extension CurrencyPairViewController: WebSocketDelegate {
                 socket.disconnect()
             }
         }
+        
+        // -------------
+        // HEARTHBEAT MESSAGE
+        // -------------
+        if message is BitfinexWebsocketHBMessage {
+            // nothing to do
+            let hearthbeatMessage = message as! BitfinexWebsocketHBMessage
+            print("Heartbeat message for channel \(hearthbeatMessage.channelId)")
+        }
     }
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("bitfinexWebSocket got some data: \(data.count)")
+        print("BitfinexWebSocket received some data: \(data.count)")
     }
 }
 

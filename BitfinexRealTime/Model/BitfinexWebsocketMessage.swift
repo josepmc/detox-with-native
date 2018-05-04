@@ -25,4 +25,8 @@ protocol BitfinexWebsocketMessage {
     var responseType: BitfinexWebsocketMessageType { get }
 }
 
+// On Bitfinex an event message is a dictionary of elements
 typealias EventMessage = [String: Any]
+
+// On Bitfinex a channel message is an array of elements
+typealias ChannelMessage = [Any]

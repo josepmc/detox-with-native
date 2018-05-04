@@ -21,13 +21,12 @@ class BitfinexWSResponseConstructor: NSObject {
             return nil
         }
         
-        // EVENT Response
+        // EVENT Message
         if let jsonEventMessage = jsonObject as? EventMessage {
             if let jsonEvent = jsonEventMessage["event"] as? String {
                 switch jsonEvent {
                 case "info":
                     // Return Info Event
-                    print("INFO EVENT")
                     return BitfinexWebsocketInfoMessage(withJson: jsonEventMessage)
                 case "pong":
                     // Return Pong Event
@@ -42,9 +41,23 @@ class BitfinexWSResponseConstructor: NSObject {
                     // Return Error Event
                     print("ERROR EVENT")
                 default:
-                    print("ERROR EVENT")
+                    return nil
                 }
             }
+        }
+        
+        // Channel Message
+        if let jsonChannelMessage = jsonObject as? ChannelMessage {
+            
+            for element in jsonChannelMessage {
+                if let elementString = element as? String, elementString == "hb" {
+                    // Hearthbeat message
+                    return BitfinexWebsocketHBMessage(withJson: jsonChannelMessage)
+                }
+                
+                
+            }
+
         }
         
         return nil
