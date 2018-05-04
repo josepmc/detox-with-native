@@ -39,7 +39,7 @@ class BitfinexWSResponseConstructor: NSObject {
                     print("UNSUBSCRIBE EVENT")
                 case "error":
                     // Return Error Event
-                    print("ERROR EVENT")
+                    return BitfinexWebsocketErrorMessage(withJson: jsonEventMessage)
                 default:
                     return nil
                 }

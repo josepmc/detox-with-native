@@ -11,8 +11,8 @@ import Foundation
 /// All the possible responses type from a Bitfinex Websocket
 enum BitfinexWebsocketMessageType {
     case info
-    case pong
-    case configuration
+    case pong // not treated (we don't ping on this project for the moment)
+    case configuration // not treated (we don't change configuration on this project for the moment)
     case channelSubscription
     case channelUnsubscription
     case channelUpdate

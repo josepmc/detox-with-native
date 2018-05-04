@@ -106,6 +106,17 @@ extension CurrencyPairViewController: WebSocketDelegate {
         }
         
         // -------------
+        // ERROR MESSAGE
+        // -------------
+        if message is BitfinexWebsocketErrorMessage {
+            // we log the error and disconnect
+            let errorMessage = message as! BitfinexWebsocketErrorMessage
+            print("!!!! An error occurred! Error code: \(errorMessage.errorCode), error message: \(errorMessage.errorMessage ?? "no message") !!!!")
+            socket.disconnect()
+        }
+
+        
+        // -------------
         // HEARTHBEAT MESSAGE
         // -------------
         if message is BitfinexWebsocketHBMessage {
