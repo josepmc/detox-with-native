@@ -73,8 +73,18 @@ extension CurrencyPairViewController: WebSocketDelegate {
 
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("bitfinexWebSocket is now disconnected: \(String(describing: error?.localizedDescription))")
+        
+        // Update the UI
         updateSocketConnectionStatus(isConnected: false)
-
+        
+        // Alert the user
+        var errorMessage = "Socket Disconnected"
+        if let anError = error {
+            errorMessage = errorMessage + ": \(anError.localizedDescription)"
+        }
+        let disconnectedAlert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        disconnectedAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(disconnectedAlert, animated: true, completion: nil)
     }
 
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
