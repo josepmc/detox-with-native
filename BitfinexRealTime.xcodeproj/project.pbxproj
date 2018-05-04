@@ -47,6 +47,7 @@
 		0F8EF8AD26F1FFFBF3A7EDD2 /* Pods-BitfinexRealTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitfinexRealTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitfinexRealTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		701D32E9209BD8C4008FE9CF /* BitfinexWebsocketInfo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BitfinexWebsocketInfo.md; sourceTree = "<group>"; };
 		C0D166A6B2E754832B79DC46 /* Pods-BitfinexRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime.debug.xcconfig"; sourceTree = "<group>"; };
 		C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF8B8746209B2D2700B3454A /* CurrencyPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 		EFDF707B2099D87100DDD43A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				701D32E9209BD8C4008FE9CF /* BitfinexWebsocketInfo.md */,
 				EF8B874C209B569F00B3454A /* BitfinexEndpoint.swift */,
 				EFDF707C2099DCB600DDD43A /* BitfinexSymbolsAPI.swift */,
 				EF8B8749209B53C900B3454A /* BitfinexTickerAPI.swift */,
