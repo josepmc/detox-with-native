@@ -1,5 +1,5 @@
 //
-//  BitfinexWebsocketHBMessage.swift
+//  BFWebsocketHBMessage.swift
 //  BitfinexRealTime
 //
 //  Created by Ferdinando Messina on 04.05.18.
@@ -15,7 +15,7 @@ import Foundation
 /// Example
 /// [ CHANNEL_ID, "hb" ]
 ///
-struct BitfinexWebsocketHBMessage: BitfinexWebsocketMessage {
+struct BFWebsocketHBMessage: BFWebsocketMessage {
     
     var responseType: BitfinexWebsocketMessageType {
         return .channelHeartbeating

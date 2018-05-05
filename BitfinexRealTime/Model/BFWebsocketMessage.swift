@@ -1,5 +1,5 @@
 //
-//  BitfinexWebsocketMessage.swift
+//  BFWebsocketMessage.swift
 //  BitfinexRealTime
 //
 //  Created by Ferdinando Messina on 04.05.18.
@@ -19,7 +19,7 @@ enum BitfinexWebsocketMessageType {
     case error
 }
 
-protocol BitfinexWebsocketMessage {
+protocol BFWebsocketMessage {
     /// The type of response (see BitfinexWSResponseType)
     var responseType: BitfinexWebsocketMessageType { get }
 }

@@ -98,9 +98,9 @@ extension CurrencyPairViewController: WebSocketDelegate {
         // -------------
         // INFO MESSAGE
         // -------------
-        if message is BitfinexWebsocketInfoMessage {
+        if message is BFWebsocketInfoMessage {
             // we verify the status of the platform
-            let infoMessage = message as! BitfinexWebsocketInfoMessage
+            let infoMessage = message as! BFWebsocketInfoMessage
             if !infoMessage.platformIsOperative {
                 // If the platform is not operative, we disconnect
                 socket.disconnect()
@@ -110,9 +110,9 @@ extension CurrencyPairViewController: WebSocketDelegate {
         // -------------
         // ERROR MESSAGE
         // -------------
-        if message is BitfinexWebsocketErrorMessage {
+        if message is BFWebsocketErrorMessage {
             // we log the error and disconnect
-            let errorMessage = message as! BitfinexWebsocketErrorMessage
+            let errorMessage = message as! BFWebsocketErrorMessage
             print("!!!! An error occurred! Error code: \(errorMessage.errorCode), error message: \(errorMessage.errorMessage ?? "no message") !!!!")
             socket.disconnect()
         }
@@ -120,9 +120,9 @@ extension CurrencyPairViewController: WebSocketDelegate {
         // -------------
         // HEARTHBEAT MESSAGE
         // -------------
-        if message is BitfinexWebsocketHBMessage {
+        if message is BFWebsocketHBMessage {
             // nothing to do
-            let hearthbeatMessage = message as! BitfinexWebsocketHBMessage
+            let hearthbeatMessage = message as! BFWebsocketHBMessage
             print("Heartbeat message for channel \(hearthbeatMessage.channelId)")
         }
         

@@ -1,5 +1,5 @@
 //
-//  BitfinexWebsocketInfoMessage.swift
+//  BFWebsocketInfoMessage.swift
 //  BitfinexRealTime
 //
 //  Created by Ferdinando Messina on 04.05.18.
@@ -15,7 +15,7 @@ import Foundation
 /// Example
 /// { "event": "info", "version":  VERSION, "platform": { "status": 1 } }
 ///
-struct BitfinexWebsocketInfoMessage: BitfinexWebsocketMessage {
+struct BFWebsocketInfoMessage: BFWebsocketMessage {
     
     var responseType: BitfinexWebsocketMessageType {
         return .info

@@ -15,7 +15,7 @@ class BitfinexWSResponseConstructor: NSObject {
     /// - Parameters:
     ///   - jsonString: The response string received on the web socket
     ///
-    static func websocketMessage(fromJsonString jsonString: String) -> BitfinexWebsocketMessage? {
+    static func websocketMessage(fromJsonString jsonString: String) -> BFWebsocketMessage? {
         
         guard let jsonObject = jsonString.parseAsJSON() else {
             return nil
@@ -28,7 +28,7 @@ class BitfinexWSResponseConstructor: NSObject {
                 
                 case "info":
                     // Return Info Message
-                    return BitfinexWebsocketInfoMessage(withJson: jsonEventMessage)
+                    return BFWebsocketInfoMessage(withJson: jsonEventMessage)
                 
                 case "pong":
                     // Pong Message (not treated)
@@ -48,7 +48,7 @@ class BitfinexWSResponseConstructor: NSObject {
                 
                 case "error":
                     // Return Error Event
-                    return BitfinexWebsocketErrorMessage(withJson: jsonEventMessage)
+                    return BFWebsocketErrorMessage(withJson: jsonEventMessage)
                 
                 default:
                     return nil
@@ -62,7 +62,7 @@ class BitfinexWSResponseConstructor: NSObject {
             for element in jsonChannelMessage {
                 if let elementString = element as? String, elementString == "hb" {
                     // Hearthbeat message
-                    return BitfinexWebsocketHBMessage(withJson: jsonChannelMessage)
+                    return BFWebsocketHBMessage(withJson: jsonChannelMessage)
                 }
                 
                 

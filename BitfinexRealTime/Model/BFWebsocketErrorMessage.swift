@@ -1,5 +1,5 @@
 //
-//  BitfinexWebsocketErrorMessage.swift
+//  BFWebsocketErrorMessage.swift
 //  BitfinexRealTime
 //
 //  Created by Ferdinando Messina on 04.05.18.
@@ -19,7 +19,7 @@ import Foundation
 ///   "code":10300,
 ///   "pair":"sdasd" }
 ///
-struct BitfinexWebsocketErrorMessage: BitfinexWebsocketMessage {
+struct BFWebsocketErrorMessage: BFWebsocketMessage {
     
     var responseType: BitfinexWebsocketMessageType {
         return .error
