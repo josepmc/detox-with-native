@@ -18,6 +18,11 @@ class StringExtensionsTests: XCTestCase {
         super.tearDown()
     }
     
+    
+    /// ------------------------------
+    /// separated(every: withSeparator:) extension tests
+    /// ------------------------------
+
     //MARK:- String Separation Tests
     
     func testSeparateStringEveryZeroCharacters() {
@@ -93,6 +98,10 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(oneCharString, oneCharStringSeparated)
     }
     
+    
+    /// ------------------------------
+    /// parseAsJSON() extension tests
+    /// ------------------------------
     
     //MARK:- Parse string as Json tests
     
