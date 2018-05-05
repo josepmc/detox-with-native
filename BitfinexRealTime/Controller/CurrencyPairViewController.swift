@@ -22,6 +22,8 @@ class CurrencyPairViewController: UIViewController {
     var currencyPair: CurrencyPair!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
     
+    var tickerChannelId: Int?
+    
     static func storyboardSegueIdentifier() -> String {
         return "currencyPairSelectedSegue"
     }
@@ -66,8 +68,8 @@ extension CurrencyPairViewController: WebSocketDelegate {
         updateSocketConnectionStatus(isConnected: true)
         
         // Subscribe to the WS Ticker channel
-        let tickerChannel = BitfinexWSTickerChannel()
-        if let tickerSubscriptionMessage = tickerChannel.tickerSubscriptionMessage(forSymbol: currencyPair.identifier) {
+        let tickerChannelWebsocket = BitfinexWSTickerChannel()
+        if let tickerSubscriptionMessage = tickerChannelWebsocket.tickerSubscriptionMessage(forSymbol: currencyPair.identifier) {
             socket.write(string: tickerSubscriptionMessage)
         }
     }
@@ -115,7 +117,6 @@ extension CurrencyPairViewController: WebSocketDelegate {
             socket.disconnect()
         }
 
-        
         // -------------
         // HEARTHBEAT MESSAGE
         // -------------
@@ -124,6 +125,17 @@ extension CurrencyPairViewController: WebSocketDelegate {
             let hearthbeatMessage = message as! BitfinexWebsocketHBMessage
             print("Heartbeat message for channel \(hearthbeatMessage.channelId)")
         }
+        
+        // -------------
+        // TICKER CHANNEL SUBSCRIPTION MESSAGE
+        // -------------
+        if message is BitfinexWebsocketTickerSubscriptionMessage {
+            // we store the channel id to use it later to detect other messages from this channel
+            let tickerSubscriptionMessage = message as! BitfinexWebsocketTickerSubscriptionMessage
+            print("Subscribed to channel \(BitfinexWebsocketTickerSubscriptionMessage.channelName)")
+            tickerChannelId = tickerSubscriptionMessage.channelId
+        }
+
     }
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

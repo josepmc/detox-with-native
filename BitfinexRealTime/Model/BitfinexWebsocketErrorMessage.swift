@@ -18,7 +18,6 @@ import Foundation
 ///   "msg":"symbol: invalid",
 ///   "code":10300,
 ///   "pair":"sdasd" }
-
 ///
 struct BitfinexWebsocketErrorMessage: BitfinexWebsocketMessage {
     

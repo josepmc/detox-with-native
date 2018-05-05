@@ -25,21 +25,31 @@ class BitfinexWSResponseConstructor: NSObject {
         if let jsonEventMessage = jsonObject as? EventMessage {
             if let jsonEvent = jsonEventMessage["event"] as? String {
                 switch jsonEvent {
+                
                 case "info":
-                    // Return Info Event
+                    // Return Info Message
                     return BitfinexWebsocketInfoMessage(withJson: jsonEventMessage)
+                
                 case "pong":
-                    // Return Pong Event
-                    print("PONG EVENT")
+                    // Pong Message (not treated)
+                    print("Debug: Pong Message received, we don't treat it for the moment")
+                
                 case "subscribed":
-                    // Return Subscribe Event
-                    print("SUBSCRIBE EVENT")
+                    if let channelName = jsonEventMessage["channel"] as? String {
+                        // Return Ticker Channel Subscription Message
+                        if channelName == BitfinexWebsocketTickerSubscriptionMessage.channelName {
+                            return BitfinexWebsocketTickerSubscriptionMessage(withJson: jsonEventMessage)
+                        }
+                    }
+                    
                 case "unsubscribed":
                     // Return Unsubscribe Event
                     print("UNSUBSCRIBE EVENT")
+                
                 case "error":
                     // Return Error Event
                     return BitfinexWebsocketErrorMessage(withJson: jsonEventMessage)
+                
                 default:
                     return nil
                 }

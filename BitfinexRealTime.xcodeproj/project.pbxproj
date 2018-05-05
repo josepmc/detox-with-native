@@ -19,6 +19,8 @@
 		70AC2DD6209CA8B40054922E /* BitfinexWebsocketHBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DD4209CA8B40054922E /* BitfinexWebsocketHBMessage.swift */; };
 		70AC2DD8209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DD7209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift */; };
 		70AC2DD9209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DD7209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift */; };
+		70AC2DDB209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DDA209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift */; };
+		70AC2DDC209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DDA209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift */; };
 		9ACD08A29FD62D2B67A844C7 /* Pods_BitfinexRealTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DB1C0ECB2E66B661E73C5 /* Pods_BitfinexRealTime.framework */; };
 		DD7401C581F76EE84B029608 /* Pods_BitfinexRealTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A75F663692336106376C69 /* Pods_BitfinexRealTimeTests.framework */; };
 		EF8B8747209B2D2700B3454A /* CurrencyPairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8B8746209B2D2700B3454A /* CurrencyPairViewController.swift */; };
@@ -65,6 +67,7 @@
 		70AC2DD1209CA6A90054922E /* BitfinexWebsocketInfoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWebsocketInfoMessage.swift; sourceTree = "<group>"; };
 		70AC2DD4209CA8B40054922E /* BitfinexWebsocketHBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWebsocketHBMessage.swift; sourceTree = "<group>"; };
 		70AC2DD7209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWebsocketErrorMessage.swift; sourceTree = "<group>"; };
+		70AC2DDA209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWebsocketTickerSubscriptionMessage.swift; sourceTree = "<group>"; };
 		C0D166A6B2E754832B79DC46 /* Pods-BitfinexRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTime/Pods-BitfinexRealTime.debug.xcconfig"; sourceTree = "<group>"; };
 		C1CC4F4AEB45CB19C5886190 /* Pods-BitfinexRealTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitfinexRealTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BitfinexRealTimeTests/Pods-BitfinexRealTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF8B8746209B2D2700B3454A /* CurrencyPairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				70AC2DD1209CA6A90054922E /* BitfinexWebsocketInfoMessage.swift */,
 				70AC2DD4209CA8B40054922E /* BitfinexWebsocketHBMessage.swift */,
 				70AC2DD7209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift */,
+				70AC2DDA209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +413,7 @@
 				70AC2DD2209CA6A90054922E /* BitfinexWebsocketInfoMessage.swift in Sources */,
 				EFDF7084209A041100DDD43A /* CurrencyPair.swift in Sources */,
 				EF8B874D209B569F00B3454A /* BitfinexEndpoint.swift in Sources */,
+				70AC2DDB209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift in Sources */,
 				701D32ED209BDF82008FE9CF /* BitfinexWSTickerChannel.swift in Sources */,
 				EFDF705B2099BF0C00DDD43A /* CurrencyPairListViewController.swift in Sources */,
 				70AC2DCF209C9BFB0054922E /* BitfinexWSResponseConstructor.swift in Sources */,
@@ -430,6 +435,7 @@
 				EFDF708B209A0DE000DDD43A /* StringExtensionsTests.swift in Sources */,
 				EFDF7085209A041100DDD43A /* CurrencyPair.swift in Sources */,
 				EFDF70802099DDC500DDD43A /* BitfinexSymbolsAPITests.swift in Sources */,
+				70AC2DDC209D989D0054922E /* BitfinexWebsocketTickerSubscriptionMessage.swift in Sources */,
 				70AC2DD9209CB7F50054922E /* BitfinexWebsocketErrorMessage.swift in Sources */,
 				EFDF7089209A07BB00DDD43A /* StringExtensions.swift in Sources */,
 				EF8B874E209B569F00B3454A /* BitfinexEndpoint.swift in Sources */,
