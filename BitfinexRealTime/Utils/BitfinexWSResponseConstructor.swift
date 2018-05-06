@@ -37,8 +37,8 @@ class BitfinexWSResponseConstructor: NSObject {
                 case "subscribed":
                     if let channelName = jsonEventMessage["channel"] as? String {
                         // Return Ticker Channel Subscription Message
-                        if channelName == BitfinexWebsocketTickerSubscriptionMessage.channelName {
-                            return BitfinexWebsocketTickerSubscriptionMessage(withJson: jsonEventMessage)
+                        if channelName == BFWebsocketTickerSubscriptionMessage.channelName {
+                            return BFWebsocketTickerSubscriptionMessage(withJson: jsonEventMessage)
                         }
                     }
                     

@@ -15,7 +15,7 @@ import Foundation
 /// Example
 /// { event: "subscribed", channel: "ticker", chanId: CHANNEL_ID, pair: "BTCUSD" }
 ///
-struct BitfinexWebsocketTickerSubscriptionMessage: BFWebsocketMessage {
+struct BFWebsocketTickerSubscriptionMessage: BFWebsocketMessage {
     
     var responseType: BitfinexWebsocketMessageType {
         return .channelSubscription

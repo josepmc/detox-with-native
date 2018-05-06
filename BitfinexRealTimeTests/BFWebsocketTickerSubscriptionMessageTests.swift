@@ -1,5 +1,5 @@
 //
-//  BFWebsocketErrorMessageTests.swift
+//  BFWebsocketTickerSubscriptionMessageTests.swift
 //  BitfinexRealTimeTests
 //
 //  Created by Ferdinando Messina on 06.05.18.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class BFWebsocketErrorMessageTests: XCTestCase {
+class BFWebsocketTickerSubscriptionMessageTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -18,12 +18,11 @@ class BFWebsocketErrorMessageTests: XCTestCase {
         super.tearDown()
     }
     
-    
-    func testInitErrorMessageWithProperJson() {
+    func testInitTickerSubscriptionMessageWithProperJson() {
         
         // Given
-        let goodJsonString = "{ \"channel\":\"ticker\", \"symbol\":\"asdasd\", \"event\":\"error\", \"msg\":\"symbol: invalid\", \"code\":10300, \"pair\":\"wrongpari\" }"
-
+        let goodJsonString = "{ \"event\":\"subscribed\", \"channel\":\"ticker\", \"chanId\":12345, \"pair\":\"BTCUSD\" }"
+        
         let jsonObjectOrNil = goodJsonString.parseAsJSON() as? EventMessage
         
         guard let jsonObject = jsonObjectOrNil else {
@@ -32,15 +31,15 @@ class BFWebsocketErrorMessageTests: XCTestCase {
         }
         
         // When
-        let websocketErrorMessage = BFWebsocketErrorMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
         
         // Then
-        XCTAssertNotNil(websocketErrorMessage)
-        XCTAssertEqual(10300, websocketErrorMessage?.errorCode)
-        XCTAssertEqual("symbol: invalid", websocketErrorMessage?.errorMessage)
+        XCTAssertNotNil(websocketSubscriptionMessage)
+        XCTAssertEqual(12345, websocketSubscriptionMessage?.channelId)
+        XCTAssertEqual("BTCUSD", websocketSubscriptionMessage?.symbol)
     }
     
-    func testInitErrorMessageWithEmptyJson() {
+    func testInitTickerSubscriptionMessageWithEmpty() {
         
         // Given
         let emptyJsonString = "{ }"
@@ -52,17 +51,17 @@ class BFWebsocketErrorMessageTests: XCTestCase {
         }
         
         // When
-        let websocketErrorMessage = BFWebsocketErrorMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
         
         // Then
-        XCTAssertNil(websocketErrorMessage)
+        XCTAssertNil(websocketSubscriptionMessage)
     }
     
     
-    func testInitErrorMessageWithWrongJson() {
+    func testInitTickerSubscriptionMessageWithWrongJson() {
         
         // Given
-        let wrongJsonString = "{ \"test\":\"asdasd\", \"symbol\":\"asdasd\", \"test2\":\"qwerty\", \"msg\":\"symbol: invalid\", \"nocode\":12345 }"
+        let wrongJsonString = "{ \"event\":\"pumpdump\", \"channel\":\"ticker\", \"nochannel\":12345, \"pair\":\"BTCUSD\" }"
         let jsonObjectOrNil = wrongJsonString.parseAsJSON() as? EventMessage
         
         guard let jsonObject = jsonObjectOrNil else {
@@ -71,9 +70,9 @@ class BFWebsocketErrorMessageTests: XCTestCase {
         }
         
         // When
-        let websocketErrorMessage = BFWebsocketErrorMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
         
         // Then
-        XCTAssertNil(websocketErrorMessage)
+        XCTAssertNil(websocketSubscriptionMessage)
     }
 }

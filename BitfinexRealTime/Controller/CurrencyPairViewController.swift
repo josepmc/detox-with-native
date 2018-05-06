@@ -129,10 +129,10 @@ extension CurrencyPairViewController: WebSocketDelegate {
         // -------------
         // TICKER CHANNEL SUBSCRIPTION MESSAGE
         // -------------
-        if message is BitfinexWebsocketTickerSubscriptionMessage {
+        if message is BFWebsocketTickerSubscriptionMessage {
             // we store the channel id to use it later to detect other messages from this channel
-            let tickerSubscriptionMessage = message as! BitfinexWebsocketTickerSubscriptionMessage
-            print("Subscribed to channel \(BitfinexWebsocketTickerSubscriptionMessage.channelName)")
+            let tickerSubscriptionMessage = message as! BFWebsocketTickerSubscriptionMessage
+            print("Subscribed to channel \(BFWebsocketTickerSubscriptionMessage.channelName)")
             tickerChannelId = tickerSubscriptionMessage.channelId
         }
 
