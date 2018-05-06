@@ -1,5 +1,5 @@
 //
-//  BFWebsocketTickerSubscriptionMessageTests.swift
+//  BFWebsocketChannelSubscriptionMessage.tests
 //  BitfinexRealTimeTests
 //
 //  Created by Ferdinando Messina on 06.05.18.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class BFWebsocketTickerSubscriptionMessageTests: XCTestCase {
+class BFWebsocketChannelSubscriptionMessageTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -31,7 +31,7 @@ class BFWebsocketTickerSubscriptionMessageTests: XCTestCase {
         }
         
         // When
-        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketChannelSubscriptionMessage(withJson: jsonObject)
         
         // Then
         XCTAssertNotNil(websocketSubscriptionMessage)
@@ -51,7 +51,7 @@ class BFWebsocketTickerSubscriptionMessageTests: XCTestCase {
         }
         
         // When
-        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketChannelSubscriptionMessage(withJson: jsonObject)
         
         // Then
         XCTAssertNil(websocketSubscriptionMessage)
@@ -70,7 +70,7 @@ class BFWebsocketTickerSubscriptionMessageTests: XCTestCase {
         }
         
         // When
-        let websocketSubscriptionMessage = BFWebsocketTickerSubscriptionMessage(withJson: jsonObject)
+        let websocketSubscriptionMessage = BFWebsocketChannelSubscriptionMessage(withJson: jsonObject)
         
         // Then
         XCTAssertNil(websocketSubscriptionMessage)

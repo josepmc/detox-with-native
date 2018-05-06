@@ -29,12 +29,8 @@ class BitfinexWSResponseConstructor: NSObject {
                 print("Debug: Pong message received, we don't treat it for the moment")
             
             case "subscribed":
-                if let channelName = jsonEventMessage["channel"] as? String {
-                    // Return Ticker Channel Subscription Message
-                    if channelName == BitfinexWSTickerChannel.channelName {
-                        return BFWebsocketTickerSubscriptionMessage(withJson: jsonEventMessage)
-                    }
-                }
+                // Return Ticker Channel Subscription Message
+                return BFWebsocketChannelSubscriptionMessage(withJson: jsonEventMessage)
                 
             case "unsubscribed":
                 // Unsubscribed event (not treated)
@@ -81,8 +77,8 @@ class BitfinexWSResponseConstructor: NSObject {
         
         case BitfinexWSOrderBookChannel.channelName:
             // Order Update
-            return nil
-        
+            return BFWebsocketOrderBookUpdateMessage(withJson: channelMessage)
+
         default:
             return nil
         }

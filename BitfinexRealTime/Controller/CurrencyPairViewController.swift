@@ -92,13 +92,12 @@ extension CurrencyPairViewController: WebSocketDelegate {
         }
         
         // After 2 seconds, subscribe to the Order Book Ticker channel
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [unowned self] in
-//            let orderBookChannel = BitfinexWSOrderBookChannel()
-//            if let orderBookSubscriptionMessage = orderBookChannel.orderBookSubscriptionMessage(forSymbol: self.currencyPair.identifier) {
-//                socket.write(string: orderBookSubscriptionMessage)
-//            }
-//        }
-        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [unowned self] in
+            let orderBookChannel = BitfinexWSOrderBookChannel()
+            if let orderBookSubscriptionMessage = orderBookChannel.orderBookSubscriptionMessage(forSymbol: self.currencyPair.identifier) {
+                socket.write(string: orderBookSubscriptionMessage)
+            }
+        }        
     }
 
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -155,11 +154,11 @@ extension CurrencyPairViewController: WebSocketDelegate {
             // -------------
             // TICKER CHANNEL SUBSCRIPTION MESSAGE
             // -------------
-            if message is BFWebsocketTickerSubscriptionMessage {
+            if message is BFWebsocketChannelSubscriptionMessage {
                 // we store the channel id to use it later to detect other messages from this channel
-                let tickerSubscriptionMessage = message as! BFWebsocketTickerSubscriptionMessage
-                print("---> Subscribed to channel \(BitfinexWSTickerChannel.channelName)")
-                subscribedChannels[tickerSubscriptionMessage.channelId] = BitfinexWSTickerChannel.channelName
+                let channelSubscriptionMessage = message as! BFWebsocketChannelSubscriptionMessage
+                print("---> Subscribed to channel \(channelSubscriptionMessage.channelName)")
+                subscribedChannels[channelSubscriptionMessage.channelId] = channelSubscriptionMessage.channelName
             }
         }
 
@@ -186,15 +185,24 @@ extension CurrencyPairViewController: WebSocketDelegate {
                 print("---> Received Heartbeat message for channel \(subscribedChannelName)")
             }
             
-            
             // -------------
             // TICKER CHANNEL UPDATE MESSAGE
             // -------------
             if message is BFWebsocketTickerUpdateMessage {
-                print("---> Received Update message on ticker channel")
+                print("---> Received Update message on Ticker channel")
                 // we use the ticker update message to update the UI
                 updateTickerUI(withUpdateMessage: message as! BFWebsocketTickerUpdateMessage)
             }
+            
+            // -------------
+            // ORDER BOOK CHANNEL UPDATE MESSAGE
+            // -------------
+            if message is BFWebsocketOrderBookUpdateMessage {
+                print("---> Received update message on Order Book channel")
+                let orderBookUpdateMessage = message as! BFWebsocketOrderBookUpdateMessage
+                print("---- order book entries \(orderBookUpdateMessage.orderBookEntries)")
+            }
+
         }
     }
 
