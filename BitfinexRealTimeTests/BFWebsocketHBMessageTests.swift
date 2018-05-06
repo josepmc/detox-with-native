@@ -73,5 +73,4 @@ class BFWebsocketHBMessageTests: XCTestCase {
         // Then
         XCTAssertNil(websocketHBMessage)
     }
-
 }
