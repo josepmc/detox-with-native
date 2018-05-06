@@ -20,9 +20,6 @@ struct BFWebsocketTickerSubscriptionMessage: BFWebsocketMessage {
     var responseType: BitfinexWebsocketMessageType {
         return .channelSubscription
     }
-    static var channelName: String {
-        return "ticker"
-    }
     
     let channelId: Int
     let symbol: String

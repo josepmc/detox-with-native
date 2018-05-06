@@ -29,7 +29,7 @@ class CurrencyPairViewController: UIViewController {
     var currencyPair: CurrencyPair!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
     
-    var tickerChannelId: Int?
+    var subscribedChannels: [Int: String]!
     
     static func storyboardSegueIdentifier() -> String {
         return "currencyPairSelectedSegue"
@@ -52,6 +52,7 @@ class CurrencyPairViewController: UIViewController {
         view.backgroundColor = UIColor(red: 236.0/255, green: 240.0/255, blue: 241.0/255, alpha: 1)
         
         symbolLabel.text = currencyPair.identifier.uppercased()
+        subscribedChannels = [Int: String]()
         
         // SegmentedControl setup
         segmentedControl.addTarget(self,
@@ -85,10 +86,19 @@ extension CurrencyPairViewController: WebSocketDelegate {
         updateSocketConnectionStatus(isConnected: true)
         
         // Subscribe to the WS Ticker channel
-        let tickerChannelWebsocket = BitfinexWSTickerChannel()
-        if let tickerSubscriptionMessage = tickerChannelWebsocket.tickerSubscriptionMessage(forSymbol: currencyPair.identifier) {
+        let tickerChannel = BitfinexWSTickerChannel()
+        if let tickerSubscriptionMessage = tickerChannel.tickerSubscriptionMessage(forSymbol: currencyPair.identifier) {
             socket.write(string: tickerSubscriptionMessage)
         }
+        
+        // After 2 seconds, subscribe to the Order Book Ticker channel
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [unowned self] in
+//            let orderBookChannel = BitfinexWSOrderBookChannel()
+//            if let orderBookSubscriptionMessage = orderBookChannel.orderBookSubscriptionMessage(forSymbol: self.currencyPair.identifier) {
+//                socket.write(string: orderBookSubscriptionMessage)
+//            }
+//        }
+        
     }
 
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
@@ -110,61 +120,82 @@ extension CurrencyPairViewController: WebSocketDelegate {
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         print("BitfinexWebSocket received some text: \(text)")
         
-        let message = BitfinexWSResponseConstructor.websocketMessage(fromJsonString: text)
+        guard let jsonObject = text.parseAsJSON() else {
+            print("!!!! An error occurred! Invalid Json received from the socket!!!!")
+            return
+        }
         
-        // -------------
-        // INFO MESSAGE
-        // -------------
-        if message is BFWebsocketInfoMessage {
-            // we verify the status of the platform
-            let infoMessage = message as! BFWebsocketInfoMessage
-            if !infoMessage.platformIsOperative {
-                // If the platform is not operative, we disconnect
+        // EVENT MESSAGES
+        if let jsonEventMessage = jsonObject as? EventMessage {
+
+            let message = BitfinexWSResponseConstructor.websocketEventMessage(fromJsonEventMessage: jsonEventMessage)
+            
+            // -------------
+            // INFO MESSAGE
+            // -------------
+            if message is BFWebsocketInfoMessage {
+                // we verify the status of the platform
+                let infoMessage = message as! BFWebsocketInfoMessage
+                if !infoMessage.platformIsOperative {
+                    // If the platform is not operative, we disconnect
+                    socket.disconnect()
+                }
+            }
+
+            // -------------
+            // ERROR MESSAGE
+            // -------------
+            if message is BFWebsocketErrorMessage {
+                // we log the error and disconnect
+                let errorMessage = message as! BFWebsocketErrorMessage
+                print("!!!! An error occurred! Error code: \(errorMessage.errorCode), error message: \(errorMessage.errorMessage ?? "no message") !!!!")
                 socket.disconnect()
             }
-        }
-        
-        // -------------
-        // ERROR MESSAGE
-        // -------------
-        if message is BFWebsocketErrorMessage {
-            // we log the error and disconnect
-            let errorMessage = message as! BFWebsocketErrorMessage
-            print("!!!! An error occurred! Error code: \(errorMessage.errorCode), error message: \(errorMessage.errorMessage ?? "no message") !!!!")
-            socket.disconnect()
-        }
-
-        // -------------
-        // HEARTHBEAT MESSAGE
-        // -------------
-        if message is BFWebsocketHBMessage {
-            // nothing to do
-            let hearthbeatMessage = message as! BFWebsocketHBMessage
-            print("Heartbeat message for channel \(hearthbeatMessage.channelId)")
-        }
-        
-        // -------------
-        // TICKER CHANNEL SUBSCRIPTION MESSAGE
-        // -------------
-        if message is BFWebsocketTickerSubscriptionMessage {
-            // we store the channel id to use it later to detect other messages from this channel
-            let tickerSubscriptionMessage = message as! BFWebsocketTickerSubscriptionMessage
-            print("Subscribed to channel \(BFWebsocketTickerSubscriptionMessage.channelName)")
-            tickerChannelId = tickerSubscriptionMessage.channelId
-        }
-
-        // -------------
-        // TICKER CHANNEL UPDATE MESSAGE
-        // -------------
-        if message is BFWebsocketTickerUpdateMessage {
-            // we use the ticker update message to update the UI
-            let tickerUpdateMessage = message as! BFWebsocketTickerUpdateMessage
-            print("Ticker update message for channel \(tickerUpdateMessage.channelId)")
-            if tickerUpdateMessage.channelId == tickerChannelId {
-                updateTickerUI(withUpdateMessage: tickerUpdateMessage)
+            
+            // -------------
+            // TICKER CHANNEL SUBSCRIPTION MESSAGE
+            // -------------
+            if message is BFWebsocketTickerSubscriptionMessage {
+                // we store the channel id to use it later to detect other messages from this channel
+                let tickerSubscriptionMessage = message as! BFWebsocketTickerSubscriptionMessage
+                print("---> Subscribed to channel \(BitfinexWSTickerChannel.channelName)")
+                subscribedChannels[tickerSubscriptionMessage.channelId] = BitfinexWSTickerChannel.channelName
             }
         }
 
+        
+        // CHANNEL UPDATE MESSAGES
+        if let jsonChannelMessage = jsonObject as? ChannelMessage {
+        
+            guard let channelID = jsonChannelMessage.first as? Int else {
+                // Channel ID not found on ChannelMessage
+                return
+            }
+            guard let subscribedChannelName = subscribedChannels[channelID] else {
+                // No subscribed channel found for the received channelId
+                return
+            }
+            
+            let message = BitfinexWSResponseConstructor.websocketChannelUpdateMessage(fromJsonChannelMessage: jsonChannelMessage, channelName: subscribedChannelName)
+
+            // -------------
+            // HEARTHBEAT MESSAGE
+            // -------------
+            if message is BFWebsocketHBMessage {
+                // nothing to do
+                print("---> Received Heartbeat message for channel \(subscribedChannelName)")
+            }
+            
+            
+            // -------------
+            // TICKER CHANNEL UPDATE MESSAGE
+            // -------------
+            if message is BFWebsocketTickerUpdateMessage {
+                print("---> Received Update message on ticker channel")
+                // we use the ticker update message to update the UI
+                updateTickerUI(withUpdateMessage: message as! BFWebsocketTickerUpdateMessage)
+            }
+        }
     }
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {

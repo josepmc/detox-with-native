@@ -9,16 +9,15 @@
 import Foundation
 
 /// The BitfinexWSTickerChannel class let us interact with the Bitfinex WS Ticker Channel
-///
 class BitfinexWSTickerChannel: NSObject {
     
-    var channelName: String {
+    static var channelName: String {
         return "ticker"
     }
     
     func tickerSubscriptionMessage(forSymbol symbol: String) -> String? {
         let subscriptionMessage = ["event": "subscribe",
-                                   "channel": channelName,
+                                   "channel": BitfinexWSTickerChannel.channelName,
                                    "symbol": symbol]
         let jsonData = try? JSONSerialization.data(withJSONObject: subscriptionMessage, options: .prettyPrinted)
         guard let jsonDataNotNil = jsonData else {
