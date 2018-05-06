@@ -23,6 +23,9 @@ class CurrencyPairViewController: UIViewController {
     // Segmented Control
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    // Table View
+    @IBOutlet weak var tableView: UITableView!
+    
     var currencyPair: CurrencyPair!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
     
@@ -50,13 +53,16 @@ class CurrencyPairViewController: UIViewController {
         
         symbolLabel.text = currencyPair.identifier.uppercased()
         
-        // Targeting ourself on the segmented controller interaction
+        // SegmentedControl setup
         segmentedControl.addTarget(self,
                                    action: #selector(segmentedControlValueChanged(sender:)),
                                    for: .valueChanged)
         segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)],
                                                 for: .normal)
 
+        // TableView setup
+        tableView.delegate = self
+        tableView.delegate = self
         
         // Connect the socket
         bitfinexSocket.delegate = self
@@ -203,6 +209,31 @@ extension CurrencyPairViewController {
 }
 
 
+//MARK: - TableView datasource and delegate
+extension CurrencyPairViewController: UITableViewDataSource, UITableViewDelegate {
+   
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let reuseIdentifier = "ReuseIdentifier"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        cell.textLabel?.text = ""
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+
+}
 
 
 

@@ -100,6 +100,10 @@
                                 </segments>
                                 <color key="tintColor" red="0.53725490196078429" green="0.76862745098039209" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RjT-p8-hBb">
+                                <rect key="frame" x="0.0" y="215" width="375" height="388"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaD-xE-X5u">
                                 <rect key="frame" x="215.5" y="117" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -122,15 +126,20 @@
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="16" id="HeE-Y3-JMa"/>
                             <constraint firstItem="Suf-R0-YM2" firstAttribute="centerY" secondItem="0ul-3Q-ewI" secondAttribute="centerY" id="HxD-4K-r99"/>
                             <constraint firstItem="x3a-lW-wiS" firstAttribute="top" secondItem="0ul-3Q-ewI" secondAttribute="bottom" constant="10" id="IWa-xF-1bm"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="trailing" secondItem="GK6-rp-65f" secondAttribute="trailing" id="Lby-RT-65v"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="top" secondItem="EhJ-JX-3Ro" secondAttribute="bottom" constant="22" id="QPq-Jy-jcJ"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="leading" secondItem="x3a-lW-wiS" secondAttribute="leading" id="QrG-kA-D4m"/>
                             <constraint firstItem="EhJ-JX-3Ro" firstAttribute="top" secondItem="yaD-xE-X5u" secondAttribute="bottom" constant="30" id="Qsm-P4-ZI9"/>
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="top" secondItem="GK6-rp-65f" secondAttribute="top" constant="20" id="Ref-Ih-TGm"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="25" id="WTN-jH-KZU"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="top" secondItem="x3a-lW-wiS" secondAttribute="bottom" constant="13" id="bge-Wu-7JB"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" id="ciY-1p-qlh"/>
                             <constraint firstItem="EhJ-JX-3Ro" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" id="dHS-Vx-G59"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="leading" secondItem="nPp-CO-OJQ" secondAttribute="trailing" constant="6" id="fk1-kD-coB"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="centerY" secondItem="nPp-CO-OJQ" secondAttribute="centerY" id="i0Q-lL-wPY"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="top" secondItem="31H-k9-Xj7" secondAttribute="bottom" constant="15" id="iC3-nk-JpJ"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="bottom" secondItem="GK6-rp-65f" secondAttribute="bottom" id="jdp-lH-Vo3"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" id="tG9-zP-cFN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GK6-rp-65f"/>
                     </view>
@@ -142,6 +151,7 @@
                         <outlet property="segmentedControl" destination="EhJ-JX-3Ro" id="sYC-de-hOM"/>
                         <outlet property="socketStatus" destination="31H-k9-Xj7" id="8de-g5-V9m"/>
                         <outlet property="symbolLabel" destination="0ul-3Q-ewI" id="HQy-Qf-WbO"/>
+                        <outlet property="tableView" destination="RjT-p8-hBb" id="5d2-VW-Vlm"/>
                         <outlet property="volumeLabel" destination="x3a-lW-wiS" id="Zo5-Gm-xuM"/>
                     </connections>
                 </viewController>
