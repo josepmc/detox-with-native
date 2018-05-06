@@ -34,6 +34,8 @@ class BFWebsocketInfoMessageTests: XCTestCase {
         
         // Then
         XCTAssertNotNil(websocketInfoMessage)
+        XCTAssertEqual(1, websocketInfoMessage?.socketStreamVersion)
+        XCTAssertEqual(true, websocketInfoMessage?.platformIsOperative)
     }
     
     func testInitInfoMessageWithEmptyJson() {
@@ -72,5 +74,4 @@ class BFWebsocketInfoMessageTests: XCTestCase {
         // Then
         XCTAssertNil(websocketInfoMessage)
     }
-
 }
