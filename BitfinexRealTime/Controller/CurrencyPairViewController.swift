@@ -11,6 +11,7 @@ import Starscream
 
 class CurrencyPairViewController: UIViewController {
 
+    // Ticker UI
     @IBOutlet weak var socketStatus: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var lastPriceLabel: UILabel!
@@ -18,6 +19,9 @@ class CurrencyPairViewController: UIViewController {
     @IBOutlet weak var lowPriceLabel: UILabel!
     @IBOutlet weak var highPriceLabel: UILabel!
     @IBOutlet weak var percentage24HoursLabel: UILabel!
+    
+    // Segmented Control
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var currencyPair: CurrencyPair!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
@@ -46,6 +50,14 @@ class CurrencyPairViewController: UIViewController {
         
         symbolLabel.text = currencyPair.identifier.uppercased()
         
+        // Targeting ourself on the segmented controller interaction
+        segmentedControl.addTarget(self,
+                                   action: #selector(segmentedControlValueChanged(sender:)),
+                                   for: .valueChanged)
+        segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)],
+                                                for: .normal)
+
+        
         // Connect the socket
         bitfinexSocket.delegate = self
         bitfinexSocket.connect()
@@ -57,8 +69,7 @@ class CurrencyPairViewController: UIViewController {
 }
 
 
-// MARK:- WebSocketvDelegate
-
+// MARK:- WebSocket Delegate
 extension CurrencyPairViewController: WebSocketDelegate {
 
     func websocketDidConnect(socket: WebSocketClient) {
@@ -157,7 +168,6 @@ extension CurrencyPairViewController: WebSocketDelegate {
 
 
 // MARK:- UI updates
-
 extension CurrencyPairViewController {
     
     private func updateSocketConnectionStatus(isConnected connected: Bool) {
@@ -180,6 +190,17 @@ extension CurrencyPairViewController {
     }
 }
 
+//MARK: - Segmented Control
+extension CurrencyPairViewController {
+    
+    @objc private func segmentedControlValueChanged(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            print("ORDER BOOK")
+        } else {
+            print("TRADES")
+        }
+    }
+}
 
 
 

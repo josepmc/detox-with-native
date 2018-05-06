@@ -92,6 +92,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EhJ-JX-3Ro">
+                                <rect key="frame" x="80" y="165" width="215" height="29"/>
+                                <segments>
+                                    <segment title="Order Book"/>
+                                    <segment title="Trades"/>
+                                </segments>
+                                <color key="tintColor" red="0.53725490196078429" green="0.76862745098039209" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaD-xE-X5u">
                                 <rect key="frame" x="215.5" y="117" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
@@ -104,18 +112,22 @@
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="top" secondItem="31H-k9-Xj7" secondAttribute="bottom" constant="15" id="1pu-si-JHD"/>
                             <constraint firstItem="Tn8-nl-IH0" firstAttribute="top" secondItem="Suf-R0-YM2" secondAttribute="bottom" constant="10" id="1xq-z0-pGW"/>
                             <constraint firstItem="yaD-xE-X5u" firstAttribute="centerY" secondItem="4oO-lj-gCr" secondAttribute="centerY" id="4AE-MT-PiC"/>
+                            <constraint firstItem="GK6-rp-65f" firstAttribute="trailing" secondItem="EhJ-JX-3Ro" secondAttribute="trailing" constant="80" id="5OS-n9-CDl"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="31H-k9-Xj7" secondAttribute="trailing" constant="20" symbolic="YES" id="D5U-OD-8VT"/>
                             <constraint firstItem="Tn8-nl-IH0" firstAttribute="leading" secondItem="Suf-R0-YM2" secondAttribute="leading" id="DF5-fq-vZl"/>
                             <constraint firstItem="yaD-xE-X5u" firstAttribute="leading" secondItem="Tn8-nl-IH0" secondAttribute="leading" id="FLg-6f-fF2"/>
                             <constraint firstItem="x3a-lW-wiS" firstAttribute="leading" secondItem="0ul-3Q-ewI" secondAttribute="leading" id="GEj-jt-xis"/>
+                            <constraint firstItem="EhJ-JX-3Ro" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="80" id="GMA-v0-mhO"/>
                             <constraint firstItem="Suf-R0-YM2" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" constant="50" id="HZJ-AW-bRQ"/>
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="16" id="HeE-Y3-JMa"/>
                             <constraint firstItem="Suf-R0-YM2" firstAttribute="centerY" secondItem="0ul-3Q-ewI" secondAttribute="centerY" id="HxD-4K-r99"/>
                             <constraint firstItem="x3a-lW-wiS" firstAttribute="top" secondItem="0ul-3Q-ewI" secondAttribute="bottom" constant="10" id="IWa-xF-1bm"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="leading" secondItem="x3a-lW-wiS" secondAttribute="leading" id="QrG-kA-D4m"/>
+                            <constraint firstItem="EhJ-JX-3Ro" firstAttribute="top" secondItem="yaD-xE-X5u" secondAttribute="bottom" constant="30" id="Qsm-P4-ZI9"/>
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="top" secondItem="GK6-rp-65f" secondAttribute="top" constant="20" id="Ref-Ih-TGm"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="25" id="WTN-jH-KZU"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="top" secondItem="x3a-lW-wiS" secondAttribute="bottom" constant="13" id="bge-Wu-7JB"/>
+                            <constraint firstItem="EhJ-JX-3Ro" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" id="dHS-Vx-G59"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="leading" secondItem="nPp-CO-OJQ" secondAttribute="trailing" constant="6" id="fk1-kD-coB"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="centerY" secondItem="nPp-CO-OJQ" secondAttribute="centerY" id="i0Q-lL-wPY"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="top" secondItem="31H-k9-Xj7" secondAttribute="bottom" constant="15" id="iC3-nk-JpJ"/>
@@ -127,6 +139,7 @@
                         <outlet property="lastPriceLabel" destination="Suf-R0-YM2" id="oSF-B1-v0u"/>
                         <outlet property="lowPriceLabel" destination="4oO-lj-gCr" id="d9v-gO-2qY"/>
                         <outlet property="percentage24HoursLabel" destination="Tn8-nl-IH0" id="4ks-3g-a5N"/>
+                        <outlet property="segmentedControl" destination="EhJ-JX-3Ro" id="sYC-de-hOM"/>
                         <outlet property="socketStatus" destination="31H-k9-Xj7" id="8de-g5-V9m"/>
                         <outlet property="symbolLabel" destination="0ul-3Q-ewI" id="HQy-Qf-WbO"/>
                         <outlet property="volumeLabel" destination="x3a-lW-wiS" id="Zo5-Gm-xuM"/>
