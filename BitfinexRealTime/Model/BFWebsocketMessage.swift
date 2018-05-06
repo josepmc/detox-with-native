@@ -13,7 +13,7 @@ enum BitfinexWebsocketMessageType {
     case info
     case pong // not treated (we don't ping on this project for the moment)
     case channelSubscription
-    case channelUnsubscription
+    case channelUnsubscription // not treated (we will not unsubscribe on this project for the moment)
     case channelUpdate
     case channelHeartbeating
     case error

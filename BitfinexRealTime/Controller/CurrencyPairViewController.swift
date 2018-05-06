@@ -136,6 +136,18 @@ extension CurrencyPairViewController: WebSocketDelegate {
             tickerChannelId = tickerSubscriptionMessage.channelId
         }
 
+        // -------------
+        // TICKER CHANNEL UPDATE MESSAGE
+        // -------------
+        if message is BFWebsocketTickerUpdateMessage {
+            // we use the ticker update message to update the UI
+            let tickerUpdateMessage = message as! BFWebsocketTickerUpdateMessage
+            print("Ticker update message for channel \(tickerUpdateMessage.channelId)")
+            if tickerUpdateMessage.channelId == tickerChannelId {
+                updateTickerUI(withUpdateMessage: tickerUpdateMessage)
+            }
+        }
+
     }
 
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
@@ -149,8 +161,22 @@ extension CurrencyPairViewController: WebSocketDelegate {
 extension CurrencyPairViewController {
     
     private func updateSocketConnectionStatus(isConnected connected: Bool) {
-        socketStatus.text = connected ? "Connected" : "Disconnected"
+        socketStatus.text = connected ? "CONNECTED" : "DISCONNECTED"
         socketStatus.textColor = connected ? UIColor(red: 137.0/255, green: 196.0/255, blue: 79.0/255, alpha: 1) : UIColor.red
+    }
+    
+    private func updateTickerUI(withUpdateMessage tickerUpdateMessage: BFWebsocketTickerUpdateMessage) {
+        self.lastPriceLabel.text = "LAST: $\(tickerUpdateMessage.lastPrice)"
+        self.highPriceLabel.text = "HIGH: $\(tickerUpdateMessage.dailyHigh)"
+        self.lowPriceLabel.text = "LOW: $\(tickerUpdateMessage.dailyLow)"
+        self.volumeLabel.text = "VOL: \(tickerUpdateMessage.volume)"
+        self.percentage24HoursLabel.text = "\(tickerUpdateMessage.dailyChangePercentage * 100) %"
+        
+        if tickerUpdateMessage.dailyChangePercentage >= 0 {
+            self.percentage24HoursLabel.textColor = UIColor.green
+        } else {
+            self.percentage24HoursLabel.textColor = UIColor.red
+        }
     }
 }
 

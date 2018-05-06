@@ -59,12 +59,24 @@ class BitfinexWSResponseConstructor: NSObject {
         // Channel Message
         if let jsonChannelMessage = jsonObject as? ChannelMessage {
             
-            for element in jsonChannelMessage {
-                if let elementString = element as? String, elementString == "hb" {
+            guard jsonChannelMessage.count > 1 else {
+                // We expect an update message array to have at least 2 elements
+                return nil
+            }
+            
+            if let _ = jsonChannelMessage[0] as? Int {
+                // We have a channelId, we check for different types of update
+                
+                // HB update
+                if let secondElement = jsonChannelMessage[1] as? String, secondElement == "hb" {
                     // Hearthbeat message
                     return BFWebsocketHBMessage(withJson: jsonChannelMessage)
                 }
                 
+                // Ticker Update
+                if let _ = jsonChannelMessage[1] as? [Any] {
+                    return BFWebsocketTickerUpdateMessage(withJson: jsonChannelMessage)
+                }
                 
             }
 
