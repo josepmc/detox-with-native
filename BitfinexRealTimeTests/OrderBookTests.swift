@@ -48,6 +48,10 @@ class OrderBookTests: XCTestCase {
     }
 
     
+    /// -----------------------
+    ///    UPDATES
+    /// -----------------------
+    
     func testItRemovesOrderFromBook() {
         // Given
         let buyOrder = OrderBookEntry(price: 1000, count: 1, amount: 23)
@@ -93,8 +97,48 @@ class OrderBookTests: XCTestCase {
         } else {
             XCTFail()
         }
+    }
 
+    /// -----------------------
+    ///   SORTING
+    /// -----------------------
+    
+    func testItReturnsSortedBuyOrdersFromHighToLow() {
+        // Given
+        let buyOrder1 = OrderBookEntry(price: 1000, count: 1, amount: 23)
+        let buyOrder2 = OrderBookEntry(price: 1050, count: 1, amount: 12)
+        let buyOrder3 = OrderBookEntry(price: 1100, count: 1, amount: 55)
+        let buyOrder4 = OrderBookEntry(price: 1150, count: 1, amount: 20)
+        
+        // When
+        let newOrderBook = OrderBook(orderBookEntries: [buyOrder1, buyOrder2, buyOrder3, buyOrder4])
+        let sortedBuys = newOrderBook.sortedBuyOrders
+        
+        // Then
+        XCTAssertEqual(sortedBuys.count, newOrderBook.buyOrders.count)
+        XCTAssertEqual(sortedBuys[0].price, 1150)
+        XCTAssertEqual(sortedBuys[1].price, 1100)
+        XCTAssertEqual(sortedBuys[2].price, 1050)
+        XCTAssertEqual(sortedBuys[3].price, 1000)
     }
 
     
+    func testItReturnsSortedSellOrdersFromLowToHigh() {
+        // Given
+        let sellOrder1 = OrderBookEntry(price: 1000, count: 1, amount: -23)
+        let sellOrder2 = OrderBookEntry(price: 1050, count: 1, amount: -12)
+        let sellOrder3 = OrderBookEntry(price: 1100, count: 1, amount: -55)
+        let sellOrder4 = OrderBookEntry(price: 1150, count: 1, amount: -20)
+        
+        // When
+        let newOrderBook = OrderBook(orderBookEntries: [sellOrder1, sellOrder2, sellOrder3, sellOrder4])
+        let sortedSells = newOrderBook.sortedSellOrders
+        
+        // Then
+        XCTAssertEqual(sortedSells.count, newOrderBook.sellOrders.count)
+        XCTAssertEqual(sortedSells[0].price, 1000)
+        XCTAssertEqual(sortedSells[1].price, 1050)
+        XCTAssertEqual(sortedSells[2].price, 1100)
+        XCTAssertEqual(sortedSells[3].price, 1150)
+    }
 }

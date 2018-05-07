@@ -27,6 +27,16 @@ class OrderBook: NSObject {
     var buyOrders: [OrderBookEntry]
     var sellOrders: [OrderBookEntry]
     
+    var sortedBuyOrders: [OrderBookEntry] {
+        // Sell orders are sorted with price from high to low
+        return buyOrders.sorted(by: { $0.price > $1.price })
+    }
+
+    var sortedSellOrders: [OrderBookEntry] {
+        // Sell orders are sorted with price from low to high
+        return sellOrders.sorted(by: { $0.price < $1.price })
+    }
+    
     init(orderBookEntries entries: [OrderBookEntry]) {
         buyOrders = [OrderBookEntry]()
         sellOrders = [OrderBookEntry]()
