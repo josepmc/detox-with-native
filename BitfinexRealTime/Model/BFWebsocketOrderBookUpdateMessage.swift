@@ -23,17 +23,6 @@ import Foundation
 ///  COUNT = Number of orders at that price level (int)
 ///  ±AMOUNT = Total amount available at that price level (float). if AMOUNT > 0 then bid else ask
 ///
-/// Algorithm to create and keep a book instance updated
-///
-/// 1. subscribe to channel
-/// 2. receive the book snapshot and create your in-memory book structure
-/// 3. when count > 0 then you have to add or update the price level
-///    * if amount > 0 then add/update bids
-///    * if amount < 0 then add/update asks
-/// 4. when count = 0 then you have to delete the price level.
-///    * if amount = 1 then remove from bids
-///    * if amount = -1 then remove from asks
-///
 struct BFWebsocketOrderBookUpdateMessage: BFWebsocketMessage {
     
     // Receiving an array of array of numbers is = receiving the order book snapshot
@@ -84,19 +73,5 @@ struct BFWebsocketOrderBookUpdateMessage: BFWebsocketMessage {
         } else {
             return nil
         }
-    }
-}
-
-struct OrderBookEntry: CustomStringConvertible {
-    let price: Float
-    let count: Int
-    let amount: Float
-    
-    var description: String {
-        return "ORDER BOOK ENTRY: price:\(price), count:\(count), amount:\(amount)"
-    }
-    
-    var isBid: Bool {
-        return amount >= 0
     }
 }
