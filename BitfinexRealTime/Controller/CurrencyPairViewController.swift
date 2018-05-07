@@ -24,10 +24,13 @@ class CurrencyPairViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // Table View
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buysTableView: UITableView!
+    @IBOutlet weak var sellsTableView: UITableView!
     
     var currencyPair: CurrencyPair!
     var orderBook: OrderBook!
+    var sortedSellOrders: [OrderBookEntry]!
+    var sortedBuyOrders: [OrderBookEntry]!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
     
     var subscribedChannels: [Int: String]!
@@ -57,6 +60,8 @@ class CurrencyPairViewController: UIViewController {
         
         // Create an empty order book
         orderBook = OrderBook(orderBookEntries: [])
+        sortedBuyOrders = [OrderBookEntry]()
+        sortedSellOrders = [OrderBookEntry]()
         
         // SegmentedControl setup
         segmentedControl.addTarget(self,
@@ -65,14 +70,21 @@ class CurrencyPairViewController: UIViewController {
         segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)],
                                                 for: .normal)
 
-        // TableView setup
-        tableView.register(OrderBookTableViewCell.cellNib(),
+        // TableViews setup
+        buysTableView.register(OrderBookTableViewCell.cellNib(),
                            forCellReuseIdentifier: OrderBookTableViewCell.reuseIdentifier())
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 25
-        tableView.separatorColor = UIColor.clear
-        
+        buysTableView.delegate = self
+        buysTableView.dataSource = self
+        buysTableView.rowHeight = 25
+        buysTableView.separatorColor = UIColor.clear
+
+        sellsTableView.register(OrderBookTableViewCell.cellNib(),
+                               forCellReuseIdentifier: OrderBookTableViewCell.reuseIdentifier())
+        sellsTableView.delegate = self
+        sellsTableView.dataSource = self
+        sellsTableView.rowHeight = 25
+        sellsTableView.separatorColor = UIColor.clear
+
         // Connect the socket
         bitfinexSocket.delegate = self
         bitfinexSocket.connect()
@@ -209,7 +221,10 @@ extension CurrencyPairViewController: WebSocketDelegate {
                 print("---> Received update message on Order Book channel")
                 let orderBookUpdateMessage = message as! BFWebsocketOrderBookUpdateMessage
                 orderBook.update(withEntries: orderBookUpdateMessage.orderBookEntries)
-                tableView.reloadData()
+                sortedSellOrders = orderBook.sortedSellOrders
+                sortedBuyOrders = orderBook.sortedBuyOrders
+                sellsTableView.reloadData()
+                buysTableView.reloadData()
             }
 
         }
@@ -268,7 +283,11 @@ extension CurrencyPairViewController: UITableViewDataSource, UITableViewDelegate
         if section == 0 {
             return 1
         }
-        return orderBook.sortedBuyOrders.count
+        if tableView == buysTableView {
+            return sortedBuyOrders.count
+        } else {
+            return sortedSellOrders.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -279,7 +298,8 @@ extension CurrencyPairViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.section == 0 {
             cell.configureAsHeader()
         } else {
-            cell.configure(withOrderBookEntry: orderBook.sortedBuyOrders[indexPath.row])
+            let ordersList = (tableView == buysTableView) ? sortedBuyOrders : sortedSellOrders
+            cell.configure(withOrderBookEntry: ordersList![indexPath.row])
         }
         return cell
     }

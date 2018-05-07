@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suf-R0-YM2">
-                                <rect key="frame" x="215.5" y="55.5" width="44" height="20"/>
+                                <rect key="frame" x="216" y="56" width="44" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +82,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PERC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tn8-nl-IH0">
-                                <rect key="frame" x="215.5" y="86" width="45" height="21"/>
+                                <rect key="frame" x="216" y="86" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +94,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EhJ-JX-3Ro">
-                                <rect key="frame" x="80" y="165" width="215" height="29"/>
+                                <rect key="frame" x="80" y="160" width="215" height="29"/>
                                 <segments>
                                     <segment title="Order Book"/>
                                     <segment title="Trades"/>
@@ -101,13 +102,29 @@
                                 <color key="tintColor" red="0.53725490196078429" green="0.76862745098039209" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RjT-p8-hBb">
-                                <rect key="frame" x="0.0" y="215" width="375" height="388"/>
+                                <rect key="frame" x="0.0" y="223" width="187.5" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaD-xE-X5u">
-                                <rect key="frame" x="215.5" y="117" width="37.5" height="18"/>
+                                <rect key="frame" x="216" y="117" width="38" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GHb-dG-PKx">
+                                <rect key="frame" x="187.5" y="223" width="187.5" height="380"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-Fe-cug">
+                                <rect key="frame" x="53.5" y="201" width="80.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sell Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZC8-z9-6Rl">
+                                <rect key="frame" x="242" y="201" width="79.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -117,41 +134,49 @@
                             <constraint firstItem="Tn8-nl-IH0" firstAttribute="top" secondItem="Suf-R0-YM2" secondAttribute="bottom" constant="10" id="1xq-z0-pGW"/>
                             <constraint firstItem="yaD-xE-X5u" firstAttribute="centerY" secondItem="4oO-lj-gCr" secondAttribute="centerY" id="4AE-MT-PiC"/>
                             <constraint firstItem="GK6-rp-65f" firstAttribute="trailing" secondItem="EhJ-JX-3Ro" secondAttribute="trailing" constant="80" id="5OS-n9-CDl"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="width" secondItem="5xB-K2-P4D" secondAttribute="width" multiplier="0.5" id="CIh-yw-5S9"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="31H-k9-Xj7" secondAttribute="trailing" constant="20" symbolic="YES" id="D5U-OD-8VT"/>
                             <constraint firstItem="Tn8-nl-IH0" firstAttribute="leading" secondItem="Suf-R0-YM2" secondAttribute="leading" id="DF5-fq-vZl"/>
+                            <constraint firstItem="ZC8-z9-6Rl" firstAttribute="centerX" secondItem="GHb-dG-PKx" secondAttribute="centerX" id="EAi-KV-yNM"/>
                             <constraint firstItem="yaD-xE-X5u" firstAttribute="leading" secondItem="Tn8-nl-IH0" secondAttribute="leading" id="FLg-6f-fF2"/>
                             <constraint firstItem="x3a-lW-wiS" firstAttribute="leading" secondItem="0ul-3Q-ewI" secondAttribute="leading" id="GEj-jt-xis"/>
                             <constraint firstItem="EhJ-JX-3Ro" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="80" id="GMA-v0-mhO"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="trailing" secondItem="GK6-rp-65f" secondAttribute="trailing" id="H2l-gm-Tb8"/>
                             <constraint firstItem="Suf-R0-YM2" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" constant="50" id="HZJ-AW-bRQ"/>
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="16" id="HeE-Y3-JMa"/>
                             <constraint firstItem="Suf-R0-YM2" firstAttribute="centerY" secondItem="0ul-3Q-ewI" secondAttribute="centerY" id="HxD-4K-r99"/>
                             <constraint firstItem="x3a-lW-wiS" firstAttribute="top" secondItem="0ul-3Q-ewI" secondAttribute="bottom" constant="10" id="IWa-xF-1bm"/>
-                            <constraint firstItem="RjT-p8-hBb" firstAttribute="trailing" secondItem="GK6-rp-65f" secondAttribute="trailing" id="Lby-RT-65v"/>
-                            <constraint firstItem="RjT-p8-hBb" firstAttribute="top" secondItem="EhJ-JX-3Ro" secondAttribute="bottom" constant="22" id="QPq-Jy-jcJ"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="bottom" secondItem="GK6-rp-65f" secondAttribute="bottom" id="P4d-Jh-4vi"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="top" secondItem="EhJ-JX-3Ro" secondAttribute="bottom" constant="35" id="QPq-Jy-jcJ"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="leading" secondItem="x3a-lW-wiS" secondAttribute="leading" id="QrG-kA-D4m"/>
-                            <constraint firstItem="EhJ-JX-3Ro" firstAttribute="top" secondItem="yaD-xE-X5u" secondAttribute="bottom" constant="30" id="Qsm-P4-ZI9"/>
+                            <constraint firstItem="EhJ-JX-3Ro" firstAttribute="top" secondItem="yaD-xE-X5u" secondAttribute="bottom" constant="25" id="Qsm-P4-ZI9"/>
                             <constraint firstItem="nPp-CO-OJQ" firstAttribute="top" secondItem="GK6-rp-65f" secondAttribute="top" constant="20" id="Ref-Ih-TGm"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" constant="25" id="WTN-jH-KZU"/>
                             <constraint firstItem="4oO-lj-gCr" firstAttribute="top" secondItem="x3a-lW-wiS" secondAttribute="bottom" constant="13" id="bge-Wu-7JB"/>
-                            <constraint firstItem="RjT-p8-hBb" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" id="ciY-1p-qlh"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="top" secondItem="rMW-Fe-cug" secondAttribute="bottom" constant="4" id="cbX-Zz-9eS"/>
                             <constraint firstItem="EhJ-JX-3Ro" firstAttribute="centerX" secondItem="5xB-K2-P4D" secondAttribute="centerX" id="dHS-Vx-G59"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="top" secondItem="ZC8-z9-6Rl" secondAttribute="bottom" constant="4" id="enR-xX-hqW"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="leading" secondItem="nPp-CO-OJQ" secondAttribute="trailing" constant="6" id="fk1-kD-coB"/>
                             <constraint firstItem="31H-k9-Xj7" firstAttribute="centerY" secondItem="nPp-CO-OJQ" secondAttribute="centerY" id="i0Q-lL-wPY"/>
                             <constraint firstItem="0ul-3Q-ewI" firstAttribute="top" secondItem="31H-k9-Xj7" secondAttribute="bottom" constant="15" id="iC3-nk-JpJ"/>
                             <constraint firstItem="RjT-p8-hBb" firstAttribute="bottom" secondItem="GK6-rp-65f" secondAttribute="bottom" id="jdp-lH-Vo3"/>
-                            <constraint firstItem="RjT-p8-hBb" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" id="tG9-zP-cFN"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="leading" secondItem="RjT-p8-hBb" secondAttribute="trailing" id="k7d-CC-qzA"/>
+                            <constraint firstItem="rMW-Fe-cug" firstAttribute="centerX" secondItem="RjT-p8-hBb" secondAttribute="centerX" id="mdB-Tb-fnk"/>
+                            <constraint firstItem="RjT-p8-hBb" firstAttribute="leading" secondItem="GK6-rp-65f" secondAttribute="leading" id="reg-bv-bvh"/>
+                            <constraint firstItem="GHb-dG-PKx" firstAttribute="top" secondItem="EhJ-JX-3Ro" secondAttribute="bottom" constant="35" id="seu-nG-RkE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GK6-rp-65f"/>
                     </view>
                     <connections>
+                        <outlet property="buysTableView" destination="RjT-p8-hBb" id="F8z-9e-ljC"/>
                         <outlet property="highPriceLabel" destination="yaD-xE-X5u" id="4fS-ww-VGG"/>
                         <outlet property="lastPriceLabel" destination="Suf-R0-YM2" id="oSF-B1-v0u"/>
                         <outlet property="lowPriceLabel" destination="4oO-lj-gCr" id="d9v-gO-2qY"/>
                         <outlet property="percentage24HoursLabel" destination="Tn8-nl-IH0" id="4ks-3g-a5N"/>
                         <outlet property="segmentedControl" destination="EhJ-JX-3Ro" id="sYC-de-hOM"/>
+                        <outlet property="sellsTableView" destination="GHb-dG-PKx" id="3Ao-hk-1jU"/>
                         <outlet property="socketStatus" destination="31H-k9-Xj7" id="8de-g5-V9m"/>
                         <outlet property="symbolLabel" destination="0ul-3Q-ewI" id="HQy-Qf-WbO"/>
-                        <outlet property="tableView" destination="RjT-p8-hBb" id="5d2-VW-Vlm"/>
                         <outlet property="volumeLabel" destination="x3a-lW-wiS" id="Zo5-Gm-xuM"/>
                     </connections>
                 </viewController>

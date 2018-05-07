@@ -33,7 +33,12 @@ class OrderBookTableViewCell: UITableViewCell {
     
     func configure(withOrderBookEntry entry: OrderBookEntry) {
         self.priceLabel.text = "\(entry.price)"
-        self.amountLabel.text = "\(entry.amount)"
+        if entry.isBuyOrder {
+            self.amountLabel.text = "\(entry.amount)"
+        } else {
+            // Sells amount are negative, we use abs
+            self.amountLabel.text = "\(abs(entry.amount))"
+        }
     }
     
     func configureAsHeader() {
