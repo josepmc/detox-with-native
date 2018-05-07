@@ -27,11 +27,11 @@ class OrderBook: NSObject {
     var buyOrders: [OrderBookEntry]
     var sellOrders: [OrderBookEntry]
     
-    init(orderBookSnapshot snapshot: [OrderBookEntry]) {
+    init(orderBookEntries entries: [OrderBookEntry]) {
         buyOrders = [OrderBookEntry]()
         sellOrders = [OrderBookEntry]()
         
-        for entry in snapshot {
+        for entry in entries {
             if entry.isBuyOrder {
                 buyOrders.append(entry)
             } else {

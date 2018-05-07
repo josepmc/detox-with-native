@@ -27,6 +27,7 @@ class CurrencyPairViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var currencyPair: CurrencyPair!
+    var orderBook: OrderBook!
     var bitfinexSocket = WebSocket(url: URL(string: "wss://api.bitfinex.com/ws/2")!)
     
     var subscribedChannels: [Int: String]!
@@ -53,6 +54,9 @@ class CurrencyPairViewController: UIViewController {
         
         symbolLabel.text = currencyPair.identifier.uppercased()
         subscribedChannels = [Int: String]()
+        
+        // Create an empty order book
+        orderBook = OrderBook(orderBookEntries: [])
         
         // SegmentedControl setup
         segmentedControl.addTarget(self,
@@ -200,7 +204,8 @@ extension CurrencyPairViewController: WebSocketDelegate {
             if message is BFWebsocketOrderBookUpdateMessage {
                 print("---> Received update message on Order Book channel")
                 let orderBookUpdateMessage = message as! BFWebsocketOrderBookUpdateMessage
-                print("---- order book entries \(orderBookUpdateMessage.orderBookEntries)")
+                orderBook.update(withEntries: orderBookUpdateMessage.orderBookEntries)
+                print("ORDER BOOK sell count \(orderBook.sellOrders.count) buy count \(orderBook.buyOrders.count)")
             }
 
         }

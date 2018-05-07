@@ -26,7 +26,7 @@ class OrderBookTests: XCTestCase {
         let sellOrder = OrderBookEntry(price: 1100, count: 1, amount: -20) // Sell Order amout negative
         
         // When
-        let newOrderBook = OrderBook(orderBookSnapshot: [buyOrder, sellOrder])
+        let newOrderBook = OrderBook(orderBookEntries: [buyOrder, sellOrder])
         
         // Then
         XCTAssertEqual(newOrderBook.buyOrders.count, 1)
@@ -40,7 +40,7 @@ class OrderBookTests: XCTestCase {
         let sellOrder = OrderBookEntry(price: 1100, count: 1, amount: -20) // Sell Order amount negative
         
         // When
-        let newOrderBook = OrderBook(orderBookSnapshot: [buyOrder, buyOrder2, sellOrder])
+        let newOrderBook = OrderBook(orderBookEntries: [buyOrder, buyOrder2, sellOrder])
         let buyOrderToFind = OrderBookEntry(price: 1050, count: 1, amount: 12) // Buy Order amount positive
 
         // Then
@@ -55,7 +55,7 @@ class OrderBookTests: XCTestCase {
         let sellOrder = OrderBookEntry(price: 1100, count: 1, amount: -20)
         
         // When
-        let newOrderBook = OrderBook(orderBookSnapshot: [buyOrder, buyOrder2, sellOrder])
+        let newOrderBook = OrderBook(orderBookEntries: [buyOrder, buyOrder2, sellOrder])
         let orderToRemove = OrderBookEntry(price: 1100, count: 0, amount: -1)
         newOrderBook.update(withEntries: [orderToRemove])
         
@@ -71,7 +71,7 @@ class OrderBookTests: XCTestCase {
         let sellOrder = OrderBookEntry(price: 1100, count: 1, amount: -20)
         
         // When
-        let newOrderBook = OrderBook(orderBookSnapshot: [buyOrder, buyOrder2, sellOrder])
+        let newOrderBook = OrderBook(orderBookEntries: [buyOrder, buyOrder2, sellOrder])
         let buyOrderToUpdate = OrderBookEntry(price: 1000, count: 3, amount: 55)
         let buyOrderToInsert = OrderBookEntry(price: 1020, count: 2, amount: 36)
         newOrderBook.update(withEntries: [buyOrderToUpdate, buyOrderToInsert])
