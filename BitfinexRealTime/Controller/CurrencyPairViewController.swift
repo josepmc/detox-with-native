@@ -35,6 +35,10 @@ class CurrencyPairViewController: UIViewController {
     
     var subscribedChannels: [Int: String]!
     
+    private lazy var connectToSocketBarButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(connectWebsocket))
+    }()
+
     static func storyboardSegueIdentifier() -> String {
         return "currencyPairSelectedSegue"
     }
@@ -85,13 +89,17 @@ class CurrencyPairViewController: UIViewController {
         sellsTableView.rowHeight = 25
         sellsTableView.separatorColor = UIColor.clear
 
-        // Connect the socket
-        bitfinexSocket.delegate = self
-        bitfinexSocket.connect()
+        connectWebsocket()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc private func connectWebsocket() {
+        // Connect the socket
+        bitfinexSocket.delegate = self
+        bitfinexSocket.connect()
     }
 }
 
@@ -111,7 +119,7 @@ extension CurrencyPairViewController: WebSocketDelegate {
             socket.write(string: tickerSubscriptionMessage)
         }
         
-        // After 2 seconds, subscribe to the Order Book Ticker channel
+        // After 2 seconds, subscribe to the Order Book channel
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [unowned self] in
             let orderBookChannel = BitfinexWSOrderBookChannel()
             if let orderBookSubscriptionMessage = orderBookChannel.orderBookSubscriptionMessage(forSymbol: self.currencyPair.identifier) {
@@ -242,6 +250,7 @@ extension CurrencyPairViewController {
     private func updateSocketConnectionStatus(isConnected connected: Bool) {
         socketStatus.text = connected ? "CONNECTED" : "DISCONNECTED"
         socketStatus.textColor = connected ? UIColor(red: 137.0/255, green: 196.0/255, blue: 79.0/255, alpha: 1) : UIColor.red
+        navigationItem.rightBarButtonItem = connected ? nil : connectToSocketBarButtonItem
     }
     
     private func updateTickerUI(withUpdateMessage tickerUpdateMessage: BFWebsocketTickerUpdateMessage) {
