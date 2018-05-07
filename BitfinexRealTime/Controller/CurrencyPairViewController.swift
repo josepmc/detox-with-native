@@ -66,8 +66,12 @@ class CurrencyPairViewController: UIViewController {
                                                 for: .normal)
 
         // TableView setup
+        tableView.register(OrderBookTableViewCell.cellNib(),
+                           forCellReuseIdentifier: OrderBookTableViewCell.reuseIdentifier())
         tableView.delegate = self
-        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 25
+        tableView.separatorColor = UIColor.clear
         
         // Connect the socket
         bitfinexSocket.delegate = self
@@ -96,7 +100,7 @@ extension CurrencyPairViewController: WebSocketDelegate {
         }
         
         // After 2 seconds, subscribe to the Order Book Ticker channel
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [unowned self] in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [unowned self] in
             let orderBookChannel = BitfinexWSOrderBookChannel()
             if let orderBookSubscriptionMessage = orderBookChannel.orderBookSubscriptionMessage(forSymbol: self.currencyPair.identifier) {
                 socket.write(string: orderBookSubscriptionMessage)
@@ -205,7 +209,7 @@ extension CurrencyPairViewController: WebSocketDelegate {
                 print("---> Received update message on Order Book channel")
                 let orderBookUpdateMessage = message as! BFWebsocketOrderBookUpdateMessage
                 orderBook.update(withEntries: orderBookUpdateMessage.orderBookEntries)
-                print("ORDER BOOK sell count \(orderBook.sellOrders.count) buy count \(orderBook.buyOrders.count)")
+                tableView.reloadData()
             }
 
         }
@@ -257,20 +261,26 @@ extension CurrencyPairViewController {
 extension CurrencyPairViewController: UITableViewDataSource, UITableViewDelegate {
    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if section == 0 {
+            return 1
+        }
+        return orderBook.sortedBuyOrders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let reuseIdentifier = "ReuseIdentifier"
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrderBookTableViewCell.reuseIdentifier(),
+                                                 for: indexPath) as! OrderBookTableViewCell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        cell.textLabel?.text = ""
-        cell.selectionStyle = .none
+        if indexPath.section == 0 {
+            cell.configureAsHeader()
+        } else {
+            cell.configure(withOrderBookEntry: orderBook.sortedBuyOrders[indexPath.row])
+        }
         return cell
     }
     

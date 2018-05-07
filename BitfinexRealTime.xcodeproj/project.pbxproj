@@ -18,6 +18,10 @@
 		701D32F0209C3C92008FE9CF /* BFWebsocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D32EF209C3C92008FE9CF /* BFWebsocketMessage.swift */; };
 		701D32F1209C3C92008FE9CF /* BFWebsocketMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D32EF209C3C92008FE9CF /* BFWebsocketMessage.swift */; };
 		7090569A209FC976005EA6E2 /* OrderBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905699209FC976005EA6E2 /* OrderBookTests.swift */; };
+		709056A1209FD979005EA6E2 /* OrderBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7090569F209FD979005EA6E2 /* OrderBookTableViewCell.swift */; };
+		709056A2209FD979005EA6E2 /* OrderBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7090569F209FD979005EA6E2 /* OrderBookTableViewCell.swift */; };
+		709056A3209FD979005EA6E2 /* OrderBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709056A0209FD979005EA6E2 /* OrderBookTableViewCell.xib */; };
+		709056A4209FD979005EA6E2 /* OrderBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709056A0209FD979005EA6E2 /* OrderBookTableViewCell.xib */; };
 		70AC2DCF209C9BFB0054922E /* BitfinexWSResponseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DCE209C9BFB0054922E /* BitfinexWSResponseConstructor.swift */; };
 		70AC2DD0209C9BFB0054922E /* BitfinexWSResponseConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DCE209C9BFB0054922E /* BitfinexWSResponseConstructor.swift */; };
 		70AC2DD2209CA6A90054922E /* BFWebsocketInfoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AC2DD1209CA6A90054922E /* BFWebsocketInfoMessage.swift */; };
@@ -81,6 +85,8 @@
 		701D32EC209BDF82008FE9CF /* BitfinexWSTickerChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWSTickerChannel.swift; sourceTree = "<group>"; };
 		701D32EF209C3C92008FE9CF /* BFWebsocketMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFWebsocketMessage.swift; sourceTree = "<group>"; };
 		70905699209FC976005EA6E2 /* OrderBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookTests.swift; sourceTree = "<group>"; };
+		7090569F209FD979005EA6E2 /* OrderBookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBookTableViewCell.swift; sourceTree = "<group>"; };
+		709056A0209FD979005EA6E2 /* OrderBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderBookTableViewCell.xib; sourceTree = "<group>"; };
 		70AC2DCE209C9BFB0054922E /* BitfinexWSResponseConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitfinexWSResponseConstructor.swift; sourceTree = "<group>"; };
 		70AC2DD1209CA6A90054922E /* BFWebsocketInfoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFWebsocketInfoMessage.swift; sourceTree = "<group>"; };
 		70AC2DD4209CA8B40054922E /* BFWebsocketHBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFWebsocketHBMessage.swift; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 		EFDF70782099CA5000DDD43A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7090569F209FD979005EA6E2 /* OrderBookTableViewCell.swift */,
+				709056A0209FD979005EA6E2 /* OrderBookTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFDF70632099BF1600DDD43A /* LaunchScreen.storyboard in Resources */,
+				709056A3209FD979005EA6E2 /* OrderBookTableViewCell.xib in Resources */,
 				EFDF70602099BF1600DDD43A /* Assets.xcassets in Resources */,
 				EFDF705E2099BF0C00DDD43A /* Main.storyboard in Resources */,
 			);
@@ -413,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709056A4209FD979005EA6E2 /* OrderBookTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8B8747209B2D2700B3454A /* CurrencyPairViewController.swift in Sources */,
+				709056A1209FD979005EA6E2 /* OrderBookTableViewCell.swift in Sources */,
 				700EB946209FA41E00A1693F /* BitfinexWSOrderBookChannel.swift in Sources */,
 				700EB949209FB5FD00A1693F /* BFWebsocketOrderBookUpdateMessage.swift in Sources */,
 				EF8B874A209B53C900B3454A /* BitfinexTickerAPI.swift in Sources */,
@@ -517,6 +528,7 @@
 				EFDF70802099DDC500DDD43A /* BitfinexSymbolsAPITests.swift in Sources */,
 				700EB950209FC35F00A1693F /* OrderBook.swift in Sources */,
 				70AC2DEE209F97330054922E /* BFWebsocketTickerUpdateMessageTests.swift in Sources */,
+				709056A2209FD979005EA6E2 /* OrderBookTableViewCell.swift in Sources */,
 				70AC2DE7209E7E260054922E /* BFWebsocketErrorMessageTests.swift in Sources */,
 				70AC2DDC209D989D0054922E /* BFWebsocketChannelSubscriptionMessage.swift in Sources */,
 				70AC2DEC209F86510054922E /* BFWebsocketTickerUpdateMessage.swift in Sources */,
