@@ -1,0 +1,30 @@
+{
+  "name": "bitfinex-tests",
+  "version": "1.0.0",
+  "author": "Josep Mateu Clemente <jmateu.clemente@gmail.com",
+  "scripts": {
+    "test": "detox test"
+  },
+  "dependencies": {
+    "detox": "^12.11.1",
+    "mocha": "^6.1.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2"
+  },
+  "detox": {
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/BitfinexRealTime.app",
+        "build": "xcodebuild -workspace BitfinexRealTime.xcworkspace -scheme BitfinexRealTime -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 7"
+      }
+    },
+    "test-runner": "mocha"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/detox": "^12.8.1",
+    "@types/mocha": "^5.2.7"
+  }
+}
